@@ -18,6 +18,7 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
     Log::info('Loading welcome page');
+    Debugbar::error('Error!');
     return view('welcome');
 });
 
