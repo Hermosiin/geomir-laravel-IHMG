@@ -36,7 +36,7 @@ Route::get('/', function (Request $request) {
     return view('welcome');
  }); 
 
- Route::resource('files', FileController::class);
+Route::resource('files', FileController::class);
 
 Auth::routes();
 
