@@ -14,9 +14,12 @@
             </div>
         </div>
     </div>
+
     @section('content')
         <h2>{{ __('Resources') }}</h2>
-        <a href="{{ url('/files') }}">{{ __('Files') }}</a>
+        <ul>
+            <li><a href="{{ url('/files') }}">{{ __('Files') }}</a>
+        <ul>
     @endsection
 
 </x-app-layout>

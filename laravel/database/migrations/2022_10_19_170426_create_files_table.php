@@ -18,8 +18,8 @@ return new class extends Migration
             $table->primary('id');
             $table->string('filepath');
             $table->Integer('filesize');
-            $table->timestamp('created_at');
-            $table->timestamp('update_at');
+            $table->timestamps();
+
         });
     }
 
