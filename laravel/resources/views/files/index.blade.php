@@ -25,8 +25,8 @@
                                 <td>{{ $file->filesize }}</td>
                                 <td>{{ $file->created_at }}</td>
                                 <td>{{ $file->updated_at }}</td>
-                                <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">👁️</a></td>
-                                <td><a class="btn" href="{{ route('files.edit', $file) }}" role="button">📝</a></td>
+                                <td><a class="btn btn-primary" href="{{ route('files.show', $file) }}" role="button">👁️</a></td>
+                                <td><a class="btn btn-primary" href="{{ route('files.edit', $file) }}" role="button">📝</a></td>
                                 <td><form method="post" action="{{ route('files.destroy', $file) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('DELETE')
@@ -36,7 +36,7 @@
                            @endforeach
                        </tbody>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add new file</a>
+                   <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add New File</a>
                </div>
            </div>
        </div>

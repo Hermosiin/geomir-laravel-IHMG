@@ -10,7 +10,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <td scope="col">ID</td>
+                                <td scope="col">Id</td>
                                 <td>{{ $file->id }}</td>
                             </tr>
                             <tr>
@@ -46,7 +46,7 @@
                             <label for="upload">New Image: </label>
                             <input type="file" class="form-control" name="upload"/>
                         </div>
-                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
+                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See File List</a>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
                    

@@ -172,9 +172,8 @@ class FileController extends Controller
         }
         else{
             \Log::debug("File Delete");
-            // Patró PRG amb missatge d'error
             return redirect()->route("files.index")
-                ->with('error', 'file Deleted');
+                ->with('success', 'File Deleted');
         }
     }
 }

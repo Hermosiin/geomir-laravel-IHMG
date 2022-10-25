@@ -27,12 +27,14 @@
                                 <label for="upload">File:</label>
                                 <input type="file" class="form-control" name="upload"/>
                             </div>
+                            <br>
                             <button type="submit" class="btn btn-primary">Create</button>
+                            &nbsp
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </form>
                        </thead>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add new file</a>
+                   <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add New File</a>
                </div>
            </div>
        </div>

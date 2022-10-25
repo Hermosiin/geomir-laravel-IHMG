@@ -10,7 +10,7 @@
                    <table class="table">
                        <thead>
                            <tr>
-                               <td scope="col">ID</td>
+                               <td scope="col">Id</td>
                                <td>{{ $file->id }}</td>
                            </tr>
                            <tr>
@@ -42,7 +42,7 @@
                    <form method="post" action="{{ route('files.destroy', $file) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
+                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See File List</a>
                         <a class="btn btn-primary" href="{{ route('files.edit', $file) }}" role="button">Edit</a>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
