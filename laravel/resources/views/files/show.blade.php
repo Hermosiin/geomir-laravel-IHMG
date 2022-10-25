@@ -39,7 +39,7 @@
                            </tr>
                        </thead>
                    </table>
-                   
+                   <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
                    <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add new file</a>
                </div>
            </div>
