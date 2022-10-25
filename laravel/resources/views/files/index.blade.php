@@ -25,6 +25,9 @@
                                <td>{{ $file->filesize }}</td>
                                <td>{{ $file->created_at }}</td>
                                <td>{{ $file->updated_at }}</td>
+                               <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">👁️</a></td>
+                               <td><a class="btn" href="{{ route('files.edit', $file) }}" role="button">📝</a></td>
+                               <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">🗑️</a></td>
                            </tr>
                            @endforeach
                        </tbody>
