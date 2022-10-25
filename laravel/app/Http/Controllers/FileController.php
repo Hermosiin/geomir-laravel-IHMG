@@ -162,6 +162,19 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        \Storage::disk('public')->delete($file -> filepath);
+        $file->delete();
+        if (\Storage::disk('public')->exists($file->filepath)) {
+            \Log::debug("Local storage OK");
+            
+            return redirect()->route('files.show', $file)
+                ->with('error','Error file already exist');
+        }
+        else{
+            \Log::debug("File Delete");
+            // Patró PRG amb missatge d'error
+            return redirect()->route("files.index")
+                ->with('error', 'file Deleted');
+        }
     }
 }

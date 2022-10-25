@@ -20,14 +20,18 @@
                        <tbody>
                            @foreach ($files as $file)
                            <tr>
-                               <td>{{ $file->id }}</td>
-                               <td>{{ $file->filepath }}</td>
-                               <td>{{ $file->filesize }}</td>
-                               <td>{{ $file->created_at }}</td>
-                               <td>{{ $file->updated_at }}</td>
-                               <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">👁️</a></td>
-                               <td><a class="btn" href="{{ route('files.edit', $file) }}" role="button">📝</a></td>
-                               <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">🗑️</a></td>
+                                <td>{{ $file->id }}</td>
+                                <td>{{ $file->filepath }}</td>
+                                <td>{{ $file->filesize }}</td>
+                                <td>{{ $file->created_at }}</td>
+                                <td>{{ $file->updated_at }}</td>
+                                <td><a class="btn" href="{{ route('files.show', $file) }}" role="button">👁️</a></td>
+                                <td><a class="btn" href="{{ route('files.edit', $file) }}" role="button">📝</a></td>
+                                <td><form method="post" action="{{ route('files.destroy', $file) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-primary">🗑️</button>
+                                </form></td>
                            </tr>
                            @endforeach
                        </tbody>

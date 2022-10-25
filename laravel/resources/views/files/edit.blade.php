@@ -43,12 +43,11 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group" style="margin-bottom: 10px;">
-                            <label for="upload">New Image:</label>
+                            <label for="upload">New Image: </label>
                             <input type="file" class="form-control" name="upload"/>
                         </div>
                         <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
-                        <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add new file</a>
-                        <button type="submit" class="btn btn-primary">Update file</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
                    
                </div>

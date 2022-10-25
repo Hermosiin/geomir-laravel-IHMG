@@ -39,8 +39,13 @@
                            </tr>
                        </thead>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
-                   <a class="btn btn-primary" href="{{ route('files.create') }}" role="button">Add new file</a>
+                   <form method="post" action="{{ route('files.destroy', $file) }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See file list</a>
+                        <a class="btn btn-primary" href="{{ route('files.edit', $file) }}" role="button">Edit</a>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
                </div>
            </div>
        </div>
