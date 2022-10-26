@@ -166,12 +166,13 @@ class FileController extends Controller
         $file->delete();
         if (\Storage::disk('public')->exists($file->filepath)) {
             \Log::debug("Local storage OK");
-            
+            // Patró PRG amb missatge d'error
             return redirect()->route('files.show', $file)
                 ->with('error','Error file already exist');
         }
         else{
             \Log::debug("File Delete");
+            // Patró PRG amb missatge d'èxit
             return redirect()->route("files.index")
                 ->with('success', 'File Deleted');
         }
