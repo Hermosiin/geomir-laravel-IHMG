@@ -36,10 +36,15 @@ Route::get('/', function (Request $request) {
     return view('welcome');
  }); 
 
-Route::resource('files', FileController::class);
+// Route::resource('files', FileController::class);
+
+// Route::resource('files', FileController::class)
+// ->middleware(['auth', 'role:2']);
+
 
 Route::resource('files', FileController::class)
-->middleware(['auth', 'role:2']);
+->middleware(['auth', 'role.any:2,3']);
+
 
 Auth::routes();
 
