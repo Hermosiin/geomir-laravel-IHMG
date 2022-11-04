@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('body', 255);
+            $table->id(); //obligatorio
+            $table->string('body', 255); 
             $table->unsignedBigInteger('file_id');
             $table->foreign('file_id')->references('id')->on('files');
             $table->float('latitude', 8, 2);
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('visibility_id');
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users');
-            $table->timestamp('created_at');
+            $table->timestamp('created_at'); 
         });
     }
 
