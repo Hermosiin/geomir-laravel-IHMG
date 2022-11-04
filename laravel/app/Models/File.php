@@ -13,4 +13,8 @@ class File extends Model
         'filesize',
     ];
 
+    public function post()
+    {
+    return $this->belongsTo(Post::class);
+    }
 }

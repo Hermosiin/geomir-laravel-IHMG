@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\PostController;
+
 
 
 /*
@@ -44,7 +46,7 @@ Route::get('/', function (Request $request) {
 
 Route::resource('files', FileController::class)
 ->middleware(['auth', 'role.any:2,3']);
-
+Route::resource('posts', PostController::class);
 
 Auth::routes();
 
