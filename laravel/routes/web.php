@@ -5,6 +5,8 @@ use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
 
+use App\Http\Controllers\PlaceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,8 @@ Route::get('/', function (Request $request) {
 Route::resource('files', FileController::class)
 ->middleware(['auth', 'role.any:2,3']);
 
+
+Route::resource('places', PlaceController::class);
 
 Auth::routes();
 

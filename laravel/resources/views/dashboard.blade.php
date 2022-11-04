@@ -19,6 +19,7 @@
         <h2>{{ __('Resources') }}</h2>
         <ul>
             <li><a href="{{ url('/files') }}">{{ __('Files') }}</a>
+            <li><a href="{{ url('/places') }}">{{ __('Places') }}</a>
         <ul>
     @endsection
 
