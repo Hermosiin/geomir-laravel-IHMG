@@ -47,8 +47,19 @@ Route::get('/', function (Request $request) {
 Route::resource('files', FileController::class)
 ->middleware(['auth', 'role.any:2,3']);
 
-
+//RUTA PARA PODER ACCEDER A PLACE
 Route::resource('places', PlaceController::class);
+
+
+//MIDDLEWARE CRUD PLACES
+// Route::get('places', [PlaceController::class, 'index'])->name('places.index');
+Route::get('places/create', [PlaceController::class, 'create'])->name('places.create')->middleware(['auth', 'role.any:1']);
+Route::post('places', [PlaceController::class, 'store'])->name('places.store')->middleware(['auth', 'role.any:1']);
+// Route::get('places/{place}', [PlaceController::class, 'show'])->name('places.show');
+Route::get('places/{place}/edit', [PlaceController::class, 'edit'])->name('places.edit')->middleware(['auth', 'role.any:1']);
+Route::put('places/{place}', [PlaceController::class, 'update'])->name('places.update')->middleware(['auth', 'role.any:1']);
+// Route::delete('places/{place}', [PlaceController::class, 'destroy'])->name('places.destroy');
+
 
 Auth::routes();
 

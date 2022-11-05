@@ -162,6 +162,9 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
+
+        // mirar de arreglar el error del file con place
+        
         \Storage::disk('public')->delete($file -> filepath);
         $file->delete();
         if (\Storage::disk('public')->exists($file->filepath)) {
