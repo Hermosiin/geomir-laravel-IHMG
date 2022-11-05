@@ -5,29 +5,41 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">{{ __('Files') }}</div>
+               <div class="card-header">{{ __('Posts') }}</div>
                <div class="card-body">
                    <table class="table">
                        <thead>
                            <tr>
                                <td scope="col">Id</td>
-                               <td>{{ $file->id }}</td>
+                               <td>{{ $post->id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Filepath</td>
-                                <td>{{ $file->filepath }}</td>
+                                <td scope="col">Body</td>
+                                <td>{{ $post->body }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Filesize</td>
-                                <td>{{ $file->filesize }}</td>
+                                <td scope="col">File Id</td>
+                                <td>{{ $post->file_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Created</td>
-                                <td>{{ $file->created_at }}</td>
+                                <td scope="col">Latitude</td>
+                                <td>{{ $post->latitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Updated</td>
-                                <td>{{ $file->updated_at }}</td>
+                                <td scope="col">Longitude</td>
+                                <td>{{ $post->longitude }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Visibility Id</td>
+                                <td>{{ $post->visibility_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Author Id</td>
+                                <td>{{ $post->author_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Created At</td>
+                                <td>{{ $post->created_at }}</td>
                            </tr>
                        </thead>
                    </table>
@@ -39,11 +51,11 @@
                            </tr>
                        </thead>
                    </table>
-                   <form method="post" action="{{ route('files.destroy', $file) }}" enctype="multipart/form-data">
+                   <form method="post" action="{{ route('posts.destroy', $post) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See File List</a>
-                        <a class="btn btn-primary" href="{{ route('files.edit', $file) }}" role="button">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">See Post List</a>
+                        <a class="btn btn-primary" href="{{ route('posts.edit', $post) }}" role="button">Edit</a>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
                </div>

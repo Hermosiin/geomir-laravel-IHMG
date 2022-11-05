@@ -10,14 +10,14 @@
                    <table class="table">
                        <thead>
                            <tr>
-                               <td scope="col">ID</td>
+                               <td scope="col">Id</td>
                                <td scope="col">Body</td>
-                               <td scope="col">File</td>
+                               <td scope="col">File Id</td>
                                <td scope="col">Latitude</td>
                                <td scope="col">Longitude</td>
-                               <td scope="col">Visibility</td>
-                               <td scope="col">Author</td>
-                               <td scope="col">Created</td>
+                               <td scope="col">Visibility Id</td>
+                               <td scope="col">Author Id</td>
+                               <td scope="col">Created At</td>
                            </tr>
                        </thead>
                        <tbody>
@@ -31,6 +31,7 @@
                                 <td>{{ $post->visibility_id }}</td>
                                 <td>{{ $post->author_id }}</td>
                                 <td>{{ $post->created_at }}</td>
+
                                 <td><a class="btn btn-primary" href="{{ route('posts.show', $post) }}" role="button">👁️</a></td>
                                 <td><a class="btn btn-primary" href="{{ route('posts.edit', $post) }}" role="button">📝</a></td>
                                 <td><form method="post" action="{{ route('posts.destroy', $post) }}" enctype="multipart/form-data">
@@ -42,6 +43,7 @@
                            @endforeach
                        </tbody>
                    </table>
+                   <a class="btn btn-primary" href="{{ route('dashboard') }}" role="button">Go To Dashbord</a>
                    <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add New Post</a>
                </div>
            </div>

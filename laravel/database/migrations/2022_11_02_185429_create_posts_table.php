@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('visibility_id');
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users');
-            $table->timestamp('created_at'); 
+            $table->timestamps(); 
         });
     }
 
