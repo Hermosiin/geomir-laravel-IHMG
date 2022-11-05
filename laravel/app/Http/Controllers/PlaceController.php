@@ -108,7 +108,7 @@ class PlaceController extends Controller
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
-            return redirect()->route("files.create")
+            return redirect()->route("places.create")
                 ->with('error', 'ERROR Uploading Place');
         }
 
@@ -216,7 +216,7 @@ class PlaceController extends Controller
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
-            return redirect()->route("files.edit")
+            return redirect()->route("places.edit")
                 ->with('error', 'ERROR Uploading Place');
         }
 
