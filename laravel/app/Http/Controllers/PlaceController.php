@@ -9,6 +9,8 @@ use Illuminate\Http\UploadedFile;
 
 
 
+
+
 class PlaceController extends Controller
 {
     /**
@@ -100,14 +102,14 @@ class PlaceController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'File successfully saved');
+                ->with('success', 'Place successfully saved');
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.create")
-                ->with('error', 'ERROR uploading file');
+                ->with('error', 'ERROR uploading place');
         }
 
     }
@@ -135,8 +137,10 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
+        $file=File::find($place->file_id);
         return view("places.edit", [
-            'place' => $place
+            'place' => $place,
+            'file' => $file,
         ]);
     }
 
@@ -150,7 +154,74 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         
-    //
+        // Validar fitxer
+        $validatedData = $request->validate([
+            'upload' => 'mimes:gif,jpeg,jpg,mp4,png|max:1024',
+        ]);
+    
+        $file=File::find($place->file_id);
+
+        // Obtenir dades del fitxer
+
+        $upload = $request->file('upload');
+        $controlNull = FALSE;
+        if(! is_null($upload)){
+            $fileName = $upload->getClientOriginalName();
+            $fileSize = $upload->getSize();
+
+            \Log::debug("Storing file '{$fileName}' ($fileSize)...");
+
+            // Pujar fitxer al disc dur
+            $uploadName = time() . '_' . $fileName;
+            $filePath = $upload->storeAs(
+                'uploads',      // Path
+                $uploadName ,   // Filename
+                'public'        // Disk
+            );
+        }
+        else{
+            $filePath = $file->filepath;
+            $fileSize = $file->filesize;
+            $controlNull = TRUE;
+        }
+
+        if (\Storage::disk('public')->exists($filePath)) {
+            if ($controlNull == FALSE){
+                \Storage::disk('public')->delete($file->filepath);
+                \Log::debug("Local storage OK");
+                $fullPath = \Storage::disk('public')->path($filePath);
+                \Log::debug("File saved at {$fullPath}");
+
+            }
+
+            // Desar dades a BD
+
+            $file->filepath=$filePath;
+            $file->filesize=$fileSize;
+            $file->save();
+            \Log::debug("DB storage OK");
+            $place->name=$request->input('name');
+            $place->description=$request->input('description');
+
+            $place->save();
+            
+            //MIRAR DE ARREGLARLO MAÑANA y pregjntar so hace falta todos los campos, si no borrarlos del edit.
+
+
+
+
+            // Patró PRG amb missatge d'èxit
+            return redirect()->route('places.show', $place)
+                ->with('success', 'Place successfully saved');
+
+
+        } else {
+            \Log::debug("Local storage FAILS");
+            // Patró PRG amb missatge d'error
+            return redirect()->route("files.edit")
+                ->with('error', 'ERROR uploading place');
+        }
+
 
     }
 
@@ -163,6 +234,38 @@ class PlaceController extends Controller
     public function destroy(Place $place)
     {
 
-        //
+        // $file=File::find($place->file_id);
+        // if(\Storage::disk('public')->exists($file->filepath)){
+        //     \Storage::disk('public')->delete($file->filepath);
+        //     File::destroy($file->id);
+        //     Place::destroy($place->id);
+        //     return redirect()->route('places.index', ["places" => Place::all()])
+        //     ->with('success', 'Place successfully Deleted');
+        // }
+        // else{
+        //     return redirect()->route('places.show', $place)
+        //         ->withwith('error', 'ERROR Deleting Place');
+        // }
+
+        $file=File::find($place->file_id);
+
+        \Storage::disk('public')->delete($place -> id);
+        $place->delete();
+
+        \Storage::disk('public')->delete($file -> filepath);
+        $file->delete();
+        if (\Storage::disk('public')->exists($place->id)) {
+            \Log::debug("Local storage OK");
+            // Patró PRG amb missatge d'error
+            return redirect()->route('places.show', $place)
+                ->with('error','Error place already exist');
+        }
+        else{
+            \Log::debug("Place Delete");
+            // Patró PRG amb missatge d'èxit
+            return redirect()->route("places.index")
+                ->with('success', 'Place Deleted');
+        }  
+
     }
 }

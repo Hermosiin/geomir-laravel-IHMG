@@ -38,19 +38,19 @@
                                 <td>{{ $place->category_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Visibility</td>
+                                <td scope="col">Visibility Id</td>
                                 <td>{{ $place->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author</td>
+                                <td scope="col">Author Id</td>
                                 <td>{{ $place->author_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Updated</td>
+                                <td scope="col">Updated At</td>
                                 <td>{{ $place->updated_at }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Created</td>
+                                <td scope="col">Created At</td>
                                 <td>{{ $place->created_at }}</td>
                            </tr>
                        </thead>
@@ -66,7 +66,7 @@
                    <form method="post" action="{{ route('places.destroy', $place) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">See File List</a>
+                        <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">See Place List</a>
                         <a class="btn btn-primary" href="{{ route('places.edit', $place) }}" role="button">Edit</a>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>

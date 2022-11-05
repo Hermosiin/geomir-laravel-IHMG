@@ -5,30 +5,54 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">{{ __('Files') }}</div>
+               <div class="card-header">{{ __('Places') }}</div>
                <div class="card-body">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <td scope="col">Id</td>
-                                <td>{{ $file->id }}</td>
-                            </tr>
-                            <tr>
-                                    <td scope="col">Filepath</td>
-                                    <td>{{ $file->filepath }}</td>
-                            </tr>
-                            <tr>
-                                    <td scope="col">Filesize</td>
-                                    <td>{{ $file->filesize }}</td>
-                            </tr>
-                            <tr>
-                                    <td scope="col">Created</td>
-                                    <td>{{ $file->created_at }}</td>
-                            </tr>
-                            <tr>
-                                    <td scope="col">Updated</td>
-                                    <td>{{ $file->updated_at }}</td>
-                            </tr>
+                        <tr>
+                               <td scope="col">Id</td>
+                               <td>{{ $place->id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Name</td>
+                                <td>{{ $place->name }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Description</td>
+                                <td>{{ $place->description }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">File Id</td>
+                                <td>{{ $place->file_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Latitude</td>
+                                <td>{{ $place->latitude }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Longitude</td>
+                                <td>{{ $place->longitude }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Category Id</td>
+                                <td>{{ $place->category_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Visibility Id</td>
+                                <td>{{ $place->visibility_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Author Id</td>
+                                <td>{{ $place->author_id }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Updated At</td>
+                                <td>{{ $place->updated_at }}</td>
+                           </tr>
+                           <tr>
+                                <td scope="col">Created At</td>
+                                <td>{{ $place->created_at }}</td>
+                           </tr>
                         </thead>
                     </table>
                     <table class="table">
@@ -39,14 +63,58 @@
                            </tr>
                        </thead>
                    </table>
-                    <form method="post" action="{{ route('files.update', $file) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('places.update', $place) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group" style="margin-bottom: 10px;">
-                            <label for="upload">New Image: </label>
-                            <input type="file" class="form-control" name="upload"/>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <label for="name">Name</label>
+                                            <input type="text" id="name" name="name" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="description">Description</label>
+                                            <input type="text" id="description" name="description" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="upload">File</label>
+                                            <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="latitude">Latitude</label>
+                                            <input type="text" id="latitude" name="latitude" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="longitude">Longitude</label>
+                                            <input type="text" id="longitude" name="longitude" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="category_id">Category Id</label>
+                                            <input type="text" id="category_id" name="category_id" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="visibility_id">Visibility Id</label>
+                                            <input type="text" id="visibility_id" name="visibility_id" class="form-control"/>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
-                        <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See File List</a>
+                        <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">See Place List</a>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
                    
