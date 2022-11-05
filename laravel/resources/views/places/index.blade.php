@@ -49,6 +49,7 @@
                            @endforeach
                        </tbody>
                    </table>
+                   <a class="btn btn-primary" href="{{ route('dashboard') }}" role="button">Go To Dashbord</a>
                    <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add New Place</a>
                </div>
            </div>

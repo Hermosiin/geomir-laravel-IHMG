@@ -69,12 +69,12 @@ class FileController extends Controller
            \Log::debug("DB storage OK");
            // Patró PRG amb missatge d'èxit
            return redirect()->route('files.show', $file)
-               ->with('success', 'File successfully saved');
+               ->with('success', 'File Successfully Saved');
        } else {
            \Log::debug("Local storage FAILS");
            // Patró PRG amb missatge d'error
            return redirect()->route("files.create")
-               ->with('error', 'ERROR uploading file');
+               ->with('error', 'ERROR Uploading File');
        }
    }
 
@@ -145,12 +145,12 @@ class FileController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('files.show', $file)
-                ->with('success', 'File successfully saved');
+                ->with('success', 'File Successfully Saved');
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.create")
-                ->with('error', 'ERROR uploading file');
+                ->with('error', 'ERROR Uploading File');
         }
     }
 
@@ -174,7 +174,7 @@ class FileController extends Controller
             \Log::debug("File Delete");
             // Patró PRG amb missatge d'èxit
             return redirect()->route("files.index")
-                ->with('success', 'File Deleted');
+                ->with('success', 'File Successfully Deleted');
         }
     }
 }

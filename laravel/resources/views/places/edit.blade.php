@@ -72,13 +72,13 @@
                                     <tr>
                                         <td>
                                             <label for="name">Name</label>
-                                            <input type="text" id="name" name="name" class="form-control"/>
+                                            <input type="text" value="{{ $place->name }}" id="name" name="name" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="description">Description</label>
-                                            <input type="text" id="description" name="description" class="form-control"/>
+                                            <input type="text" value="{{ $place->description }}" id="description" name="description" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -90,25 +90,25 @@
                                     <tr>
                                         <td>
                                             <label for="latitude">Latitude</label>
-                                            <input type="text" id="latitude" name="latitude" class="form-control"/>
+                                            <input type="text" value="{{ $place->latitude }}" id="latitude" name="latitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="longitude">Longitude</label>
-                                            <input type="text" id="longitude" name="longitude" class="form-control"/>
+                                            <input type="text" value="{{ $place->longitude }}" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="category_id">Category Id</label>
-                                            <input type="text" id="category_id" name="category_id" class="form-control"/>
+                                            <input type="text" value="{{ $place->category_id }}" id="category_id" name="category_id" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="visibility_id">Visibility Id</label>
-                                            <input type="text" id="visibility_id" name="visibility_id" class="form-control"/>
+                                            <input type="text" value="{{ $place->visibility_id }}" id="visibility_id" name="visibility_id" class="form-control"/>
                                         </td>
                                     </tr>
                                 </thead>

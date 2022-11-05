@@ -102,14 +102,14 @@ class PlaceController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place successfully saved');
+                ->with('success', 'Place Successfully Saved');
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.create")
-                ->with('error', 'ERROR uploading place');
+                ->with('error', 'ERROR Uploading Place');
         }
 
     }
@@ -202,24 +202,22 @@ class PlaceController extends Controller
             \Log::debug("DB storage OK");
             $place->name=$request->input('name');
             $place->description=$request->input('description');
-
+            $place->latitude=$request->input('latitude');
+            $place->longitude=$request->input('longitude');
+            $place->category_id=$request->input('category_id');
+            $place->visibility_id=$request->input('visibility_id');
             $place->save();
-            
-            //MIRAR DE ARREGLARLO MAÑANA y pregjntar so hace falta todos los campos, si no borrarlos del edit.
-
-
-
 
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place successfully saved');
+                ->with('success', 'Place Successfully Saved');
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.edit")
-                ->with('error', 'ERROR uploading place');
+                ->with('error', 'ERROR Uploading Place');
         }
 
 
@@ -233,19 +231,6 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-
-        // $file=File::find($place->file_id);
-        // if(\Storage::disk('public')->exists($file->filepath)){
-        //     \Storage::disk('public')->delete($file->filepath);
-        //     File::destroy($file->id);
-        //     Place::destroy($place->id);
-        //     return redirect()->route('places.index', ["places" => Place::all()])
-        //     ->with('success', 'Place successfully Deleted');
-        // }
-        // else{
-        //     return redirect()->route('places.show', $place)
-        //         ->withwith('error', 'ERROR Deleting Place');
-        // }
 
         $file=File::find($place->file_id);
 
@@ -264,7 +249,7 @@ class PlaceController extends Controller
             \Log::debug("Place Delete");
             // Patró PRG amb missatge d'èxit
             return redirect()->route("places.index")
-                ->with('success', 'Place Deleted');
+                ->with('success', 'Place Successfully Deleted');
         }  
 
     }
