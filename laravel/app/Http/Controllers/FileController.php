@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -69,12 +70,12 @@ class FileController extends Controller
            \Log::debug("DB storage OK");
            // Patró PRG amb missatge d'èxit
            return redirect()->route('files.show', $file)
-               ->with('success', 'File successfully saved');
+               ->with('success', 'File Successfully Saved');
        } else {
            \Log::debug("Local storage FAILS");
            // Patró PRG amb missatge d'error
            return redirect()->route("files.create")
-               ->with('error', 'ERROR uploading file');
+               ->with('error', 'ERROR Uploading File');
        }
    }
 
@@ -145,12 +146,12 @@ class FileController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('files.show', $file)
-                ->with('success', 'File successfully saved');
+                ->with('success', 'File Successfully Saved');
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.create")
-                ->with('error', 'ERROR uploading file');
+                ->with('error', 'ERROR Uploading File');
         }
     }
 
@@ -162,19 +163,28 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        \Storage::disk('public')->delete($file -> filepath);
-        $file->delete();
-        if (\Storage::disk('public')->exists($file->filepath)) {
-            \Log::debug("Local storage OK");
-            // Patró PRG amb missatge d'error
-            return redirect()->route('files.show', $file)
-                ->with('error','Error file already exist');
+
+        $place = Place::where('file_id', $file->id)->first();
+        
+        if (is_null($place)){
+            \Storage::disk('public')->delete($file -> filepath);
+            $file->delete();
+            if (\Storage::disk('public')->exists($file->filepath)) {
+                \Log::debug("Local storage OK");
+                // Patró PRG amb missatge d'error
+                return redirect()->route('files.show', $file)
+                    ->with('error','Error file already exist');
+            }
+            else{
+                \Log::debug("File Delete");
+                // Patró PRG amb missatge d'èxit
+                return redirect()->route("files.index")
+                    ->with('success', 'File Successfully Deleted');
+            }
         }
         else{
-            \Log::debug("File Delete");
-            // Patró PRG amb missatge d'èxit
-            return redirect()->route("files.index")
-                ->with('success', 'File Deleted');
+            return redirect()->route('files.show', $file)
+            ->with('error', 'ERROR deleting file, this file is linked to a place or post');
         }
     }
 }
