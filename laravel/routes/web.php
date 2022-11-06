@@ -48,6 +48,11 @@ Route::resource('files', FileController::class)
 ->middleware(['auth', 'role.any:2,3']);
 Route::resource('posts', PostController::class);
 
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create')->middleware(['auth', 'role.any:1']);
+Route::post('posts', [PostController::class, 'store'])->name('posts.store')->middleware(['auth', 'role.any:1']);
+Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware(['auth', 'role.any:1']);
+Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware(['auth', 'role.any:1']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
