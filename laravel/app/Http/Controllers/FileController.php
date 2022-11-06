@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -163,21 +164,27 @@ class FileController extends Controller
     public function destroy(File $file)
     {
 
-        // mirar de arreglar el error del file con place
+        $place = Place::where('file_id', $file->id)->first();
         
-        \Storage::disk('public')->delete($file -> filepath);
-        $file->delete();
-        if (\Storage::disk('public')->exists($file->filepath)) {
-            \Log::debug("Local storage OK");
-            // Patró PRG amb missatge d'error
-            return redirect()->route('files.show', $file)
-                ->with('error','Error file already exist');
+        if (is_null($place)){
+            \Storage::disk('public')->delete($file -> filepath);
+            $file->delete();
+            if (\Storage::disk('public')->exists($file->filepath)) {
+                \Log::debug("Local storage OK");
+                // Patró PRG amb missatge d'error
+                return redirect()->route('files.show', $file)
+                    ->with('error','Error file already exist');
+            }
+            else{
+                \Log::debug("File Delete");
+                // Patró PRG amb missatge d'èxit
+                return redirect()->route("files.index")
+                    ->with('success', 'File Successfully Deleted');
+            }
         }
         else{
-            \Log::debug("File Delete");
-            // Patró PRG amb missatge d'èxit
-            return redirect()->route("files.index")
-                ->with('success', 'File Successfully Deleted');
+            return redirect()->route('files.show', $file)
+            ->with('error', 'ERROR deleting file, this file is linked to a place or post');
         }
     }
 }
