@@ -48,10 +48,12 @@ Route::get('/', function (Request $request) {
 
 Route::resource('files', FileController::class)
 ->middleware(['auth', 'role.any:2,3']);
-Route::resource('posts', PostController::class);
 
 //RUTA PARA PODER ACCEDER A PLACE
 Route::resource('places', PlaceController::class);
+
+//RUTA PARA PODER ACCEDER A POST
+Route::resource('posts', PostController::class);
 
 //MIDDLEWARE CRUD PLACES
 Route::get('places/create', [PlaceController::class, 'create'])->name('places.create')->middleware(['auth', 'role.any:1']);
