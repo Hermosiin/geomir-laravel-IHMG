@@ -21,12 +21,16 @@ class Place extends Model
 
     public function file()
     {
-    return $this->hasOne(File::class);
+    return $this->belongsTo(File::class);
     }
+
+    
 
     public function user()
     {
-    return $this->belongsTo(User::class);
+       // foreign key does not follow conventions!!!
+       return $this->belongsTo(User::class, 'author_id');
     }
+    
 
 }

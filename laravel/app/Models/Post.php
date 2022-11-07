@@ -19,13 +19,15 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+    // foreign key does not follow conventions!!!
+    return $this->belongsTo(User::class, 'author_id');
     }
+
     public function file()
     {
-       return $this->hasOne(File::class);
+    return $this->belongsTo(File::class);
     }
-    
+
 
 
 }

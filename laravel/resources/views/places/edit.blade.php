@@ -42,8 +42,8 @@
                                 <td>{{ $place->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author Id</td>
-                                <td>{{ $place->author_id }}</td>
+                                <td scope="col">Author</td>
+                                <td>{{ $user->name }}</td>
                            </tr>
                            <tr>
                                 <td scope="col">Updated At</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Place;
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -120,9 +121,11 @@ class PlaceController extends Controller
     public function show(Place $place)
     {
         $file=File::find($place->file_id);
+        $user=User::find($place->author_id);
         return view("places.show", [
             'place' => $place,
             'file' => $file,
+            'user' => $user,
         ]);
     }
 
@@ -135,9 +138,11 @@ class PlaceController extends Controller
     public function edit(Place $place)
     {
         $file=File::find($place->file_id);
+        $user=User::find($place->author_id);
         return view("places.edit", [
             'place' => $place,
             'file' => $file,
+            'user' => $user,
         ]);
     }
 

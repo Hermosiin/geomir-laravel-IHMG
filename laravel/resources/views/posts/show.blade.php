@@ -34,8 +34,8 @@
                                 <td>{{ $post->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author Id</td>
-                                <td>{{ $post->author_id }}</td>
+                                <td scope="col">Author</td>
+                                <td>{{ $user->name }}</td>
                            </tr>
                            <tr>
                                 <td scope="col">Created At</td>

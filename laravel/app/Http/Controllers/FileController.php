@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use App\Models\Place;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -165,8 +166,9 @@ class FileController extends Controller
     {
 
         $place = Place::where('file_id', $file->id)->first();
+        $post = Post::where('file_id', $file->id)->first();
         
-        if (is_null($place)){
+        if (is_null($place) && is_null($post)){
             \Storage::disk('public')->delete($file -> filepath);
             $file->delete();
             if (\Storage::disk('public')->exists($file->filepath)) {
