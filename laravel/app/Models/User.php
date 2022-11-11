@@ -8,10 +8,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait; // <------------------------------- this one
+use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
+
 class User extends Authenticatable
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
+    
+    use CrudTrait; // <----- this
+    use HasRoles; // <------ and this
 
     /**
      * The attributes that are mass assignable.
