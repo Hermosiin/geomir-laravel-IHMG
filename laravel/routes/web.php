@@ -40,35 +40,22 @@ Route::get('/', function (Request $request) {
     return view('welcome');
  }); 
 
-// Route::resource('files', FileController::class);
-
-// Route::resource('files', FileController::class)
-// ->middleware(['auth', 'role:2']);
-
-
+//MIDDLEWARE CRUD Files
 Route::resource('files', FileController::class)
-->middleware(['auth', 'role.any:2,3']);
-
-//RUTA PARA PODER ACCEDER A PLACE
-Route::resource('places', PlaceController::class);
-
-//RUTA PARA PODER ACCEDER A POST
-Route::resource('posts', PostController::class);
+   ->middleware(['auth', 'permission:files']);
 
 //MIDDLEWARE CRUD PLACES
-Route::get('places/create', [PlaceController::class, 'create'])->name('places.create')->middleware(['auth', 'role.any:1']);
-Route::post('places', [PlaceController::class, 'store'])->name('places.store')->middleware(['auth', 'role.any:1']);
-Route::get('places/{place}/edit', [PlaceController::class, 'edit'])->name('places.edit')->middleware(['auth', 'role.any:1']);
-Route::put('places/{place}', [PlaceController::class, 'update'])->name('places.update')->middleware(['auth', 'role.any:1']);
+Route::resource('places', PlaceController::class)
+   ->middleware(['auth', 'permission:places']);
 
 //MIDDLEWARE CRUD POSTS
-Route::get('posts/create', [PostController::class, 'create'])->name('posts.create')->middleware(['auth', 'role.any:1']);
-Route::post('posts', [PostController::class, 'store'])->name('posts.store')->middleware(['auth', 'role.any:1']);
-Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware(['auth', 'role.any:1']);
-Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware(['auth', 'role.any:1']);
+Route::resource('posts', PostController::class)
+   ->middleware(['auth', 'permission:posts']);
 
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/language/{locale}', [App\Http\Controllers\HomeController::class, 'language']);

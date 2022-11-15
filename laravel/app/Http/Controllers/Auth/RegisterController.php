@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => 1,
+  
         ]);
 
         event(new Registered($user));
@@ -79,7 +79,7 @@ class RegisterController extends Controller
         Auth::login($user);
 
         $user->sendEmailVerificationNotification();
-
+        $user->assignRole('author');
         return $user;
     }
 }
