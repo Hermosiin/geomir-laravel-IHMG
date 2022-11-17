@@ -19,6 +19,8 @@ class User extends Authenticatable
     use CrudTrait; // <----- this
     use HasRoles; // <------ and this
 
+    public $guard_name = 'web';
+
     /**
      * The attributes that are mass assignable.
      *
