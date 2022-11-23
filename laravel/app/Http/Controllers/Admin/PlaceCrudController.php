@@ -45,14 +45,14 @@ class PlaceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('description');
-        CRUD::column('file_id');
-        CRUD::column('latitude');
-        CRUD::column('longitude');
-        CRUD::column('category_id');
-        CRUD::column('visibility_id');
-        CRUD::column('author_id');
+        CRUD::column('name')->label(__('fpp_traduct.name'));
+        CRUD::column('description')->label(__('fpp_traduct.description'));
+        CRUD::column('file_id')->label(__('fpp_traduct.file'));
+        CRUD::column('latitude')->label(__('fpp_traduct.latitude'));
+        CRUD::column('longitude')->label(__('fpp_traduct.longitude'));
+        CRUD::column('category_id')->label(__('fpp_traduct.category'));
+        CRUD::column('visibility_id')->label(__('fpp_traduct.visibility'));
+        CRUD::column('author_id')->label(__('fpp_traduct.author'));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

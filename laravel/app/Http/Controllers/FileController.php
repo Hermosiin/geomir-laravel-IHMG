@@ -71,12 +71,12 @@ class FileController extends Controller
            \Log::debug("DB storage OK");
            // Patró PRG amb missatge d'èxit
            return redirect()->route('files.show', $file)
-               ->with('success', 'File Successfully Saved');
+               ->with('success', __('fpp_traduct.file-success'));
        } else {
            \Log::debug("Local storage FAILS");
            // Patró PRG amb missatge d'error
            return redirect()->route("files.create")
-               ->with('error', 'ERROR Uploading File');
+               ->with('error', __('fpp_traduct.file-error'));
        }
    }
 
@@ -147,12 +147,12 @@ class FileController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('files.show', $file)
-                ->with('success', 'File Successfully Saved');
+                ->with('success', __('fpp_traduct.file-success'));
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("files.create")
-                ->with('error', 'ERROR Uploading File');
+                ->with('error', __('fpp_traduct.file-error'));
         }
     }
 
@@ -175,18 +175,18 @@ class FileController extends Controller
                 \Log::debug("Local storage OK");
                 // Patró PRG amb missatge d'error
                 return redirect()->route('files.show', $file)
-                    ->with('error','Error file already exist');
+                    ->with('error', __('fpp_traduct.file-success-delete'));
             }
             else{
                 \Log::debug("File Delete");
                 // Patró PRG amb missatge d'èxit
                 return redirect()->route("files.index")
-                    ->with('success', 'File Successfully Deleted');
+                    ->with('success', __('fpp_traduct.file-error-delete'));
             }
         }
         else{
             return redirect()->route('files.show', $file)
-            ->with('error', 'ERROR deleting file, this file is linked to a place or post');
+            ->with('error', __('fpp_traduct.file-error-delete2'));
         }
     }
 }

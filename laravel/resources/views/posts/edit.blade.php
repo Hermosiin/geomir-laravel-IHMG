@@ -81,10 +81,20 @@
                                             <input type="text" value="{{ $post->longitude }}" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             <label for="visibility_id">Visibility Id</label>
                                             <input type="text" value="{{ $post->visibility_id }}" id="visibility_id" name="visibility_id" class="form-control"/>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>
+                                            <label for="visibility_id">Visibility</label>
+                                            <select name="visibility_id" class="form-control">
+                                                <option value="1">public</option>
+                                                <option value="2">contacts</option>   
+                                                <option value="3">private</option>
+                                            </select> 
                                         </td>
                                     </tr>
                                 </thead>

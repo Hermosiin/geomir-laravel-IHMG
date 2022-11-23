@@ -11,14 +11,14 @@
                        <thead>
                            <tr>
                                <td scope="col">Id</td>
-                               <td scope="col">Name</td>
-                               <td scope="col">Description</td>
-                               <td scope="col">File Id</td>
-                               <td scope="col">Latitude</td>
-                               <td scope="col">Longitude</td>
-                               <td scope="col">Category Id</td>
-                               <td scope="col">Visibility Id</td>
-                               <td scope="col">Author Id</td>
+                               <td scope="col">{{ __('fpp_traduct.name') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.description') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.file') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.latitude') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.longitude') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.category') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
+                               <td scope="col">{{ __('fpp_traduct.author') }}</td>
                                <td scope="col">Created At</td>
                                <td scope="col">Updated At</td>
                            </tr>

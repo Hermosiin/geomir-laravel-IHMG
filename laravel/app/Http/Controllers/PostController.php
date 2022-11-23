@@ -93,14 +93,14 @@ class PostController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('posts.show', $post)
-                ->with('success', 'Post Successfully Saved');
+                ->with('success',__('fpp_traduct.post-success'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("posts.create")
-                ->with('error', 'ERROR Uploading Post');
+                ->with('error',__('fpp_traduct.post-error'));
         }
     }
 
@@ -201,14 +201,14 @@ class PostController extends Controller
 
             // Patró PRG amb missatge d'èxit
             return redirect()->route('posts.show', $post)
-                ->with('success', 'Post Successfully Saved');
+                ->with('success',__('fpp_traduct.post-success'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("posts.edit")
-                ->with('error', 'ERROR Uploading Post');
+                ->with('error',__('fpp_traduct.post-error'));
         }
     }
 
@@ -231,13 +231,13 @@ class PostController extends Controller
             \Log::debug("Local storage OK");
             // Patró PRG amb missatge d'error
             return redirect()->route('posts.show', $post)
-                ->with('error','Error post already exist');
+                ->with('error',__('fpp_traduct.post-error-delete'));
         }
         else{
             \Log::debug("Post Delete");
             // Patró PRG amb missatge d'èxit
             return redirect()->route("posts.index")
-                ->with('success', 'Post Successfully Deleted');
+                ->with('success',__('fpp_traduct.post-success-delete'));
         }  
     }
 }

@@ -100,14 +100,14 @@ class PlaceController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place Successfully Saved');
+                ->with('success',__('fpp_traduct.place-success'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("places.create")
-                ->with('error', 'ERROR Uploading Place');
+                ->with('error',__('fpp_traduct.place-error'));
         }
 
     }
@@ -212,14 +212,14 @@ class PlaceController extends Controller
 
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place Successfully Saved');
+                ->with('success',__('fpp_traduct.place-success'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("places.edit")
-                ->with('error', 'ERROR Uploading Place');
+                ->with('error',__('fpp_traduct.place-error'));
         }
 
 
@@ -245,13 +245,13 @@ class PlaceController extends Controller
             \Log::debug("Local storage OK");
             // Patró PRG amb missatge d'error
             return redirect()->route('places.show', $place)
-                ->with('error','Error place already exist');
+                ->with('error',__('fpp_traduct.place-error-delete'));
         }
         else{
             \Log::debug("Place Delete");
             // Patró PRG amb missatge d'èxit
             return redirect()->route("places.index")
-                ->with('success', 'Place Successfully Deleted');
+                ->with('success',__('fpp_traduct.place-success-delete'));
         }  
 
     }

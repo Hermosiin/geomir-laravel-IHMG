@@ -45,12 +45,12 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('body');
-        CRUD::column('file_id');
-        CRUD::column('latitude');
-        CRUD::column('longitude');
-        CRUD::column('visibility_id');
-        CRUD::column('author_id');
+        CRUD::column('body')->label(__('fpp_traduct.name'));
+        CRUD::column('file_id')->label(__('fpp_traduct.file'));
+        CRUD::column('latitude')->label(__('fpp_traduct.latitude'));
+        CRUD::column('longitude')->label(__('fpp_traduct.longitude'));
+        CRUD::column('visibility_id')->label(__('fpp_traduct.visibility'));
+        CRUD::column('author_id')->label(__('fpp_traduct.author'));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

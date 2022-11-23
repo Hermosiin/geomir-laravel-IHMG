@@ -105,10 +105,20 @@
                                             <input type="text" value="{{ $place->category_id }}" id="category_id" name="category_id" class="form-control"/>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             <label for="visibility_id">Visibility Id</label>
                                             <input type="text" value="{{ $place->visibility_id }}" id="visibility_id" name="visibility_id" class="form-control"/>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>
+                                            <label for="visibility_id">Visibility</label>
+                                            <select name="visibility_id" class="form-control">
+                                                <option value="1">public</option>
+                                                <option value="2">contacts</option>   
+                                                <option value="3">private</option>
+                                            </select> 
                                         </td>
                                     </tr>
                                 </thead>
