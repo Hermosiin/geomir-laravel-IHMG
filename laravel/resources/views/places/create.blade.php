@@ -70,10 +70,12 @@
                                         <td>
                                             <label for="visibility_id">Visibility</label>
                                             <select name="visibility_id" class="form-control">
-                                                <option value="1">public</option>
-                                                <option value="2">contacts</option>   
-                                                <option value="3">private</option>
-                                            </select> 
+                                                @foreach ($visibilities as $visibility)
+                                                    <option value="{{ $visibility->id }}">{{ $visibility->name }}</option>
+                                                   
+                                                @endforeach
+
+                                            </select>                                           
                                         </td>
                                     </tr>
                                 </div>

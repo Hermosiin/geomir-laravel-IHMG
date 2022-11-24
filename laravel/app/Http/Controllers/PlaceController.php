@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Place;
 use App\Models\File;
 use App\Models\User;
+use App\Models\Visibility;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -19,7 +20,8 @@ class PlaceController extends Controller
     public function index()
     {
         return view("places.index", [
-            "places" => Place::all()
+            "places" => Place::all(),
+            "files" => File::all()
         ]);
     }
 
@@ -31,7 +33,10 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        return view("places.create");
+        return view("places.create", [
+            "visibilities" => Visibility::all(),
+
+        ]); 
     }
 
     /**
@@ -143,6 +148,7 @@ class PlaceController extends Controller
             'place' => $place,
             'file' => $file,
             'user' => $user,
+            "visibilities" => Visibility::all(),
         ]);
     }
 

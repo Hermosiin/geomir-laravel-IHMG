@@ -115,9 +115,14 @@
                                         <td>
                                             <label for="visibility_id">Visibility</label>
                                             <select name="visibility_id" class="form-control">
-                                                <option value="1">public</option>
-                                                <option value="2">contacts</option>   
-                                                <option value="3">private</option>
+                                                @foreach ($visibilities as $visibility)
+                                                    @if ($visibility->id == $place->visibility_id)
+                                                        <option selected value="{{ $visibility->id }}">{{ $visibility->name }}</option>
+                                                    @else
+                                                    <option value="{{ $visibility->id }}">{{ $visibility->name }}</option>
+                                                    @endif
+                                                @endforeach
+
                                             </select> 
                                         </td>
                                     </tr>

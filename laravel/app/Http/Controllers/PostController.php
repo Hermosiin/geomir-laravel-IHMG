@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\File;
 use App\Models\User;
+use App\Models\Visibility;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -32,7 +34,10 @@ class PostController extends Controller
      */
     public function create()
     { 
-        return view("posts.create");  
+        return view("posts.create", [
+            "visibilities" => Visibility::all(),
+
+        ]); 
     }
 
     /**
@@ -137,6 +142,9 @@ class PostController extends Controller
             'post' => $post,
             'file' => $file,
             'user' => $user,
+            "visibilities" => Visibility::all(),
+    
+            
         ]);
     }
 
