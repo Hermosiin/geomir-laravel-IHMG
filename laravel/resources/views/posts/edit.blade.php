@@ -14,27 +14,27 @@
                                <td>{{ $post->id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Body</td>
+                                <td scope="col">{{ __('fpp_traduct.body') }}</td>
                                 <td>{{ $post->body }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">File Id</td>
+                                <td scope="col">{{ __('fpp_traduct.file') }}</td>
                                 <td>{{ $post->file_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Latitude</td>
+                                <td scope="col">{{ __('fpp_traduct.latitude') }}</td>
                                 <td>{{ $post->latitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Longitude</td>
+                                <td scope="col">{{ __('fpp_traduct.longitude') }}</td>
                                 <td>{{ $post->longitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Visibility Id</td>
+                                <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
                                 <td>{{ $post->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author</td>
+                                <td scope="col">{{ __('fpp_traduct.author') }}</td>
                                 <td>{{ $user->name }}</td>
                            </tr>
                            <tr>
@@ -59,25 +59,25 @@
                                 <thead>
                                     <tr>
                                         <td>
-                                            <label for="body">Body</label>
+                                            <label for="body">{{ __('fpp_traduct.body') }}</label>
                                             <input type="text" value="{{ $post->body }}" id="body" name="body" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="upload">File</label>
+                                            <label for="upload">{{ __('fpp_traduct.file') }}</label>
                                             <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="latitude">Latitude</label>
+                                            <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
                                             <input type="text" value="{{ $post->latitude }}" id="latitude" name="latitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="longitude">Longitude</label>
+                                            <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
                                             <input type="text" value="{{ $post->longitude }}" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
@@ -89,7 +89,7 @@
                                     </tr> -->
                                     <tr>
                                         <td>
-                                            <label for="visibility_id">Visibility</label>
+                                            <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
                                             <select name="visibility_id" class="form-control">
                                                 @foreach ($visibilities as $visibility)
                                                     @if ($visibility->id == $post->visibility_id)

@@ -14,27 +14,27 @@
                                <td>{{ $post->id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Body</td>
+                                <td scope="col">{{ __('fpp_traduct.body') }}</td>
                                 <td>{{ $post->body }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">File Id</td>
+                                <td scope="col">{{ __('fpp_traduct.file') }}</td>
                                 <td>{{ $post->file_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Latitude</td>
+                                <td scope="col">{{ __('fpp_traduct.latitude') }}</td>
                                 <td>{{ $post->latitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Longitude</td>
+                                <td scope="col">{{ __('fpp_traduct.longitude') }}</td>
                                 <td>{{ $post->longitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Visibility Id</td>
+                                <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
                                 <td>{{ $post->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author</td>
+                                <td scope="col">{{ __('fpp_traduct.author') }}</td>
                                 <td>{{ $user->name }}</td>
                            </tr>
                            <tr>

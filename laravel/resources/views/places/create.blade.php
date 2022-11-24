@@ -26,37 +26,37 @@
                                 <div class="form-group">
                                     <tr>
                                         <td>
-                                            <label for="name">Name</label>
+                                            <label for="name">{{ __('fpp_traduct.name') }}</label>
                                             <input type="text" id="name" name="name" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="description">Description</label>
+                                            <label for="description">{{ __('fpp_traduct.description') }}</label>
                                             <input type="text" id="description" name="description" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="upload">File</label>
+                                            <label for="upload">{{ __('fpp_traduct.file') }}</label>
                                             <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="latitude">Latitude</label>
+                                            <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
                                             <input type="text" id="latitude" name="latitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="longitude">Longitude</label>
+                                            <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
                                             <input type="text" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="category_id">Category Id</label>
+                                            <label for="category_id">{{ __('fpp_traduct.category') }}</label>
                                             <input type="text" id="category_id" name="category_id" class="form-control"/>
                                         </td>
                                     </tr>
@@ -68,7 +68,7 @@
                                     </tr> -->
                                     <tr>
                                         <td>
-                                            <label for="visibility_id">Visibility</label>
+                                            <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
                                             <select name="visibility_id" class="form-control">
                                                 @foreach ($visibilities as $visibility)
                                                     <option value="{{ $visibility->id }}">{{ $visibility->name }}</option>

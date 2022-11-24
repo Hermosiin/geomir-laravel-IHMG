@@ -14,35 +14,35 @@
                                <td>{{ $place->id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Name</td>
+                                <td scope="col">{{ __('fpp_traduct.name') }}</td>
                                 <td>{{ $place->name }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Description</td>
+                                <td scope="col">{{ __('fpp_traduct.description') }}</td>
                                 <td>{{ $place->description }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">File Id</td>
+                                <td scope="col">{{ __('fpp_traduct.file') }}</td>
                                 <td>{{ $place->file_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Latitude</td>
+                                <td scope="col">{{ __('fpp_traduct.latitude') }}</td>
                                 <td>{{ $place->latitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Longitude</td>
+                                <td scope="col">{{ __('fpp_traduct.longitude') }}</td>
                                 <td>{{ $place->longitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Category Id</td>
+                                <td scope="col">{{ __('fpp_traduct.category') }}</td>
                                 <td>{{ $place->category_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Visibility Id</td>
+                                <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
                                 <td>{{ $place->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author</td>
+                                <td scope="col">{{ __('fpp_traduct.author') }}</td>
                                 <td>{{ $user->name }}</td>
                            </tr>
                            <tr>
@@ -71,37 +71,37 @@
                                 <thead>
                                     <tr>
                                         <td>
-                                            <label for="name">Name</label>
+                                            <label for="name">{{ __('fpp_traduct.name') }}</label>
                                             <input type="text" value="{{ $place->name }}" id="name" name="name" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="description">Description</label>
+                                            <label for="description">{{ __('fpp_traduct.description') }}</label>
                                             <input type="text" value="{{ $place->description }}" id="description" name="description" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="upload">File</label>
+                                            <label for="upload">{{ __('fpp_traduct.file') }}</label>
                                             <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="latitude">Latitude</label>
+                                            <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
                                             <input type="text" value="{{ $place->latitude }}" id="latitude" name="latitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="longitude">Longitude</label>
+                                            <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
                                             <input type="text" value="{{ $place->longitude }}" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="category_id">Category Id</label>
+                                            <label for="category_id">{{ __('fpp_traduct.category') }}</label>
                                             <input type="text" value="{{ $place->category_id }}" id="category_id" name="category_id" class="form-control"/>
                                         </td>
                                     </tr>
@@ -113,7 +113,7 @@
                                     </tr> -->
                                     <tr>
                                         <td>
-                                            <label for="visibility_id">Visibility</label>
+                                            <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
                                             <select name="visibility_id" class="form-control">
                                                 @foreach ($visibilities as $visibility)
                                                     @if ($visibility->id == $place->visibility_id)
