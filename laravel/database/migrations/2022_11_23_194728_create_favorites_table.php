@@ -14,21 +14,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-            
-            // $table->timestamps();
-
-            $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('place_id');
-
-
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('place_id')->references('id')->on('places');
-
-
+            $table->foreign('place_id')->references('id')->on('places')
+                  ->onUpdate('cascade')->onDelete('cascade');
+            // Eloquent does not support composite PK :-(
+            // $table->primary(['column1', 'column2']);
+        });
+        // Eloquent compatibility workaround :-)
+        Schema::table('favorites', function (Blueprint $table) {
+            $table->id()->first();
+            $table->unique(['user_id', 'place_id']);
         });
     }
+ 
 
     /**
      * Reverse the migrations.
