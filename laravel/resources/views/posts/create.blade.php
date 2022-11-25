@@ -23,7 +23,7 @@
                        <thead>
                         <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <tr>
                                         <td>
                                             <label for="body">{{ __('fpp_traduct.body') }}</label>
@@ -33,7 +33,7 @@
                                     <tr>
                                         <td>
                                             <label for="upload">{{ __('fpp_traduct.file') }}</label>
-                                            <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
+                                            <input type="file" id="upload" class="form-control" name="upload"/>
                                         </td>
                                     </tr>
                                     <tr>
