@@ -27,7 +27,7 @@ $theme-colors: (
 }
 
 .navbar a:hover{
-    color: black;
+    color: white;
 }
 
 .navbar div{
@@ -113,6 +113,7 @@ ul.botonera2 li > a {
     text-align: center;
     color: black;
     margin: 5px;  
+    text-decoration: none;
 
 }
 
@@ -141,7 +142,7 @@ ul.botonera2 li > a {
 }
 
 ul.botonera-perfils li > div {
-    display: block;
+    display: flex;
     background: #cbcbcb;
     border: 2px solid black;
     text-align: center;
@@ -149,6 +150,20 @@ ul.botonera-perfils li > div {
     margin: 5px; 
  
 }
+
+ul.botonera-perfils li > div > img {
+    height:100%; 
+    width: 20%;
+ 
+}
+
+ul.botonera-perfils li > div > p {
+    font-size:3vh; 
+    margin-top:7px; 
+    margin-left:6px;
+}
+
+
 
 .flex-post{
     display: flex;
@@ -158,6 +173,15 @@ ul.botonera-perfils li > div {
     width: 100%;
 
 }
+
+.flex-places{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 .div-bnt-menu{
     display: flex;
@@ -190,8 +214,22 @@ ul.botonera-perfils li > div {
     background-color:#BCBCBC;
 }
 
+.div-places{
+    display: flex;
+    border: 0.3vh solid black; 
+    margin: 30px;  
+    height: 50vh; 
+    width: 100%; 
+    background-color:#BCBCBC;
+}
+
+
 .div-foto-nom{
     display: flex;
+}
+
+.grid{
+    display: grid;
 }
 
 .img-perfil{
@@ -202,10 +240,23 @@ ul.botonera-perfils li > div {
     border: 0.3vh solid black
 }
 
+.mapa-places{
+    width: 40%;
+    height: 47.5vh;
+    margin: 1vh;
+    border:0.3vh solid black;
+}
+
 .h1-nom{
     margin-left:1vh; 
     margin-top:2vh; 
     font-size:4vh;
+}
+.h1-nom-places{
+    margin-left:0.5vh; 
+    margin-top:1vh; 
+    font-size:2vh;
+    width: 100%;
 }
 
 .img-post{
@@ -216,10 +267,16 @@ ul.botonera-perfils li > div {
     margin-top:1vh; 
     display:block; 
     border:0.3vh solid black;
-
-
 }
 
+
+.img-place{
+    height: 25vh; 
+    width: 60%; 
+    margin:1vh; 
+    display:block; 
+    border:0.3vh solid black;
+}
 .div-btn-post{
     display:flex; 
     margin:1vh; 
@@ -228,6 +285,7 @@ ul.botonera-perfils li > div {
 }
 
 .div-btn-post a{
+    margin-top: 0px;
     margin:0.5vh; 
     border-radius: 50px; 
     background-color:#ffd74b; 
@@ -255,9 +313,68 @@ ul.botonera-perfils li > div {
     background-color:white;
 }
 
+.caja-comentarios-places{
+    height: 14.5vh; 
+    width: 95%; 
+    margin:auto; 
+    margin-top:1vh; 
+    display:block; 
+    border:0.3vh solid black; 
+    border-radius: 20px; 
+    background-color:white;
+}
+
+.caja-comentarios-places p{
+    margin-left: 1vh;
+    margin-top: 1vh;
+}
+
+.estrellas{
+    display: flex;
+    margin: 2vh;    
+    font-size: 2vh;
+
+}
+
+.estrellas a, .estrellas a:hover{
+    -webkit-text-stroke: 2px black;
+    color: white; 
+    text-decoration: none;
+    margin: 0.6vh;
+
+}
+
 .caja-comentarios p{
     margin-top:1vh; 
     margin-left:1vh;
+}
+.h1-perfils-publics{
+    color:white; 
+    justify-content:center; 
+    margin-top:8px; 
+    font-size:4vh;
+
+
+}
+
+.card-body{
+    background-color:#CBCBCB;
+
+
+}
+
+
+.card-header{
+    background-color:black !important;
+    color:white !important; 
+
+}
+
+
+
+.form-control{
+    background-color: white !important;
+
 
 
 }

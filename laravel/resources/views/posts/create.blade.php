@@ -35,7 +35,7 @@
                                     <tr>
                                         <td id="upload">
                                             <label for="upload">{{ __('fpp_traduct.file') }}</label>
-                                            <input type="file" style="background-color:white;" id="upload" class="form-control" name="upload" class="form-control"/>
+                                            <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
                                             <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
