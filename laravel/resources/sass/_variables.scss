@@ -27,7 +27,7 @@ $theme-colors: (
 }
 
 .navbar a:hover{
-    color: black;
+    color: white;
 }
 
 .navbar div{
@@ -113,6 +113,7 @@ ul.botonera2 li > a {
     text-align: center;
     color: black;
     margin: 5px;  
+    text-decoration: none;
 
 }
 
@@ -141,7 +142,7 @@ ul.botonera2 li > a {
 }
 
 ul.botonera-perfils li > div {
-    display: block;
+    display: flex;
     background: #cbcbcb;
     border: 2px solid black;
     text-align: center;
@@ -149,6 +150,20 @@ ul.botonera-perfils li > div {
     margin: 5px; 
  
 }
+
+ul.botonera-perfils li > div > img {
+    height:100%; 
+    width: 20%;
+ 
+}
+
+ul.botonera-perfils li > div > p {
+    font-size:3vh; 
+    margin-top:7px; 
+    margin-left:6px;
+}
+
+
 
 .flex-post{
     display: flex;
@@ -258,6 +273,14 @@ ul.botonera-perfils li > div {
 .caja-comentarios p{
     margin-top:1vh; 
     margin-left:1vh;
+
+
+}
+.h1-perfils-publics{
+    color:white; 
+    justify-content:center; 
+    margin-top:8px; 
+    font-size:4vh;
 
 
 }
