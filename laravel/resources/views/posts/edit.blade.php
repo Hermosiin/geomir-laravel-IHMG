@@ -105,7 +105,7 @@
                                 </thead>
                             </table>
                         </div>
-                        <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">See Post List</a>
+                        <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">Go back</a>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
                    

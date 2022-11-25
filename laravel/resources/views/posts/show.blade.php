@@ -54,7 +54,7 @@
                    <form method="post" action="{{ route('posts.destroy', $post) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">See Post List</a>
+                        <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">Go back</a>
                         <a class="btn btn-primary" href="{{ route('posts.edit', $post) }}" role="button">Edit</a>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>

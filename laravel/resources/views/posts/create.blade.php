@@ -75,7 +75,7 @@
                             </form>
                        </thead>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add New Post</a>
+                   <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">Go back</a>
                </div>
            </div>
        </div>

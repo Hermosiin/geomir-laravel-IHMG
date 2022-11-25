@@ -86,7 +86,7 @@
                             </form>
                        </thead>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add New Place</a>
+                   <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">Go back</a>
                </div>
            </div>
        </div>
