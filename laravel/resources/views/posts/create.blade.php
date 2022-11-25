@@ -21,31 +21,36 @@
                <div class="card-body">
                    <table class="table">
                        <thead>
-                        <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                        <form method="post" id="create" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                                 @csrf
+                                @vite('resources/js/posts/create.js')
                                 <div class="form-group">
                                     <tr>
-                                        <td>
+                                        <td id="body">
                                             <label for="body">{{ __('fpp_traduct.body') }}</label>
-                                            <input type="text" id="body" name="body" class="form-control"/>
+                                            <input type="text" style="background-color:white;" id="body" name="body" class="form-control"/>
+                                            <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td id="upload">
                                             <label for="upload">{{ __('fpp_traduct.file') }}</label>
-                                            <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
+                                            <input type="file" style="background-color:white;" id="upload" class="form-control" name="upload" class="form-control"/>
+                                            <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td id="latitude">
                                             <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
-                                            <input type="text" id="latitude" name="latitude" class="form-control"/>
+                                            <input type="text" style="background-color:white;" id="latitude" name="latitude" class="form-control"/>
+                                            <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td id="longitude">
                                             <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
-                                            <input type="text" id="longitude" name="longitude" class="form-control"/>
+                                            <input type="text" style="background-color:white;" id="longitude" name="longitude" class="form-control"/>
+                                            <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
                                     <!-- mirarlo bien y cambiarlo todo -->
@@ -56,15 +61,16 @@
                                         </td>
                                     </tr> -->
                                     <tr>
-                                        <td>
+                                        <td id="visibility_id">
                                             <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
-                                            <select name="visibility_id" class="form-control">
+                                            <select style="background-color:white;" name="visibility_id" class="form-control">
                                                 @foreach ($visibilities as $visibility)
                                                     <option value="{{ $visibility->id }}">{{ $visibility->name }}</option>
                                                    
                                                 @endforeach
 
-                                            </select>                                           
+                                            </select>  
+                                            <div class="error alert alert-danger alert-dismissible fade"></div>
                                         </td>
                                     </tr>
                                 </div>

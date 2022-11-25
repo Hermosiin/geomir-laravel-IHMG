@@ -60,25 +60,26 @@
                                     <tr>
                                         <td>
                                             <label for="body">{{ __('fpp_traduct.body') }}</label>
-                                            <input type="text" value="{{ $post->body }}" id="body" name="body" class="form-control"/>
+                                            <input type="text" style="background-color:white;" value="{{ $post->body }}" id="body" name="body" class="form-control" required/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="upload">{{ __('fpp_traduct.file') }}</label>
-                                            <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
+                                            <input type="file" style="background-color:white;" id="upload" class="form-control" name="upload" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
-                                            <input type="text" value="{{ $post->latitude }}" id="latitude" name="latitude" class="form-control"/>
+                                            <input type="text" style="background-color:white;" value="{{ $post->latitude }}" id="latitude" name="latitude" class="form-control" required/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
-                                            <input type="text" value="{{ $post->longitude }}" id="longitude" name="longitude" class="form-control"/>
+                                            <input type="text" style="background-color:white;" value="{{ $post->longitude }}" id="longitude" name="longitude" class="form-control" required/>
+
                                         </td>
                                     </tr>
                                     <!-- <tr>
@@ -90,7 +91,7 @@
                                     <tr>
                                         <td>
                                             <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
-                                            <select name="visibility_id" class="form-control">
+                                            <select style="background-color:white;" name="visibility_id" class="form-control">
                                                 @foreach ($visibilities as $visibility)
                                                     @if ($visibility->id == $post->visibility_id)
                                                         <option selected value="{{ $visibility->id }}">{{ $visibility->name }}</option>

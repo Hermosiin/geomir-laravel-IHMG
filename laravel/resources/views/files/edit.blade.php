@@ -44,7 +44,7 @@
                         @method('PUT')
                         <div class="form-group" style="margin-bottom: 10px;">
                             <label for="upload">New Image: </label>
-                            <input type="file" class="form-control" name="upload"/>
+                            <input style="background-color:white;" type="file" class="form-control" name="upload"/>
                         </div>
                         <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">See File List</a>
                         <button type="submit" class="btn btn-primary">Save Changes</button>

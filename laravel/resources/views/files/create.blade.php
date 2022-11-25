@@ -26,7 +26,7 @@
                             @vite('resources/js/files/create.js')
                             <div class="form-group">
                                 <label for="upload">File:</label>
-                                <input type="file" class="form-control" name="upload"/>
+                                <input style="background-color:white;" type="file" class="form-control" name="upload"/>
                             </div>
                             <br>
                             <div id="error" class="alert alert-danger alert-dismissible fade"></div>
