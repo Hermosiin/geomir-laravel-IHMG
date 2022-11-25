@@ -26,25 +26,25 @@
                                 <div class="form-group">
                                     <tr>
                                         <td>
-                                            <label for="body">Body</label>
+                                            <label for="body">{{ __('fpp_traduct.body') }}</label>
                                             <input type="text" id="body" name="body" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="upload">File</label>
+                                            <label for="upload">{{ __('fpp_traduct.file') }}</label>
                                             <input type="file" id="upload" class="form-control" name="upload" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="latitude">Latitude</label>
+                                            <label for="latitude">{{ __('fpp_traduct.latitude') }}</label>
                                             <input type="text" id="latitude" name="latitude" class="form-control"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="longitude">Longitude</label>
+                                            <label for="longitude">{{ __('fpp_traduct.longitude') }}</label>
                                             <input type="text" id="longitude" name="longitude" class="form-control"/>
                                         </td>
                                     </tr>
@@ -57,11 +57,13 @@
                                     </tr> -->
                                     <tr>
                                         <td>
-                                            <label for="visibility_id">Visibility</label>
+                                            <label for="visibility_id">{{ __('fpp_traduct.visibility') }}</label>
                                             <select name="visibility_id" class="form-control">
-                                                <option value="1">public</option>
-                                                <option value="2">contacts</option>   
-                                                <option value="3">private</option> 
+                                                @foreach ($visibilities as $visibility)
+                                                    <option value="{{ $visibility->id }}">{{ $visibility->name }}</option>
+                                                   
+                                                @endforeach
+
                                             </select>                                           
                                         </td>
                                     </tr>
@@ -73,7 +75,7 @@
                             </form>
                        </thead>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add New Post</a>
+                   <a class="btn btn-primary" href="{{ route('posts.index') }}" role="button">Go back</a>
                </div>
            </div>
        </div>

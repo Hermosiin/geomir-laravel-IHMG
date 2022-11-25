@@ -11,7 +11,7 @@
 
                 <div class="div-foto-nom" >
                     <img src="./img/foto.jfif" class="img-perfil"  />    
-                    <h1 class="h1-nom">{{ $post->author_id }}</h1>
+                    <h1 class="h1-nom">{{ $post->user->name }}</h1>
                 </div>  
 
 

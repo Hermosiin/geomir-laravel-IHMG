@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-            // $table->id();
+            
             // $table->timestamps();
 
-
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('place_id');
 
-            $table->primary(['user_id', 'place_id']);
+
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('place_id')->references('id')->on('places');

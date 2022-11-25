@@ -14,35 +14,35 @@
                                <td>{{ $place->id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Name</td>
+                                <td scope="col">{{ __('fpp_traduct.name') }}</td>
                                 <td>{{ $place->name }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Description</td>
+                                <td scope="col">{{ __('fpp_traduct.description') }}</td>
                                 <td>{{ $place->description }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">File Id</td>
+                                <td scope="col">{{ __('fpp_traduct.file') }}</td>
                                 <td>{{ $place->file_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Latitude</td>
+                                <td scope="col">{{ __('fpp_traduct.latitude') }}</td>
                                 <td>{{ $place->latitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Longitude</td>
+                                <td scope="col">{{ __('fpp_traduct.longitude') }}</td>
                                 <td>{{ $place->longitude }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Category Id</td>
+                                <td scope="col">{{ __('fpp_traduct.category') }}</td>
                                 <td>{{ $place->category_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Visibility Id</td>
+                                <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
                                 <td>{{ $place->visibility_id }}</td>
                            </tr>
                            <tr>
-                                <td scope="col">Author</td>
+                                <td scope="col">{{ __('fpp_traduct.author') }}</td>
                                 <td>{{ $user->name }}</td>
                            </tr>
                            <tr>
@@ -66,7 +66,7 @@
                    <form method="post" action="{{ route('places.destroy', $place) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">See Place List</a>
+                        <a class="btn btn-primary" href="{{ route('places.index') }}" role="button">Go back</a>
                         <a class="btn btn-primary" href="{{ route('places.edit', $place) }}" role="button">Edit</a>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
