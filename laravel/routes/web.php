@@ -59,3 +59,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);
+
+Route::post('/posts/{post}/likes', [App\Http\Controllers\PostController::class, 'like'])->name('posts.like');
+
+Route::post('/post/{post}/unfavorites', [App\Http\Controllers\PostController::class, 'unlike'])->name('posts.unlike');
