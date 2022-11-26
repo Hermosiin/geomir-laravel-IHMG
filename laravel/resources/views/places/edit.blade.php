@@ -39,7 +39,7 @@
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
-                                <td>{{ $place->visibility_id }}</td>
+                                <td>{{ $visibility->name }}</td>
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.author') }}</td>

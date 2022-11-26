@@ -6,8 +6,10 @@ use App\Models\Place;
 use App\Models\File;
 use App\Models\User;
 use App\Models\Visibility;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+
 
 
 class PlaceController extends Controller
@@ -127,10 +129,12 @@ class PlaceController extends Controller
     {
         $file=File::find($place->file_id);
         $user=User::find($place->author_id);
+        $visibility=Visibility::find($place->visibility_id);
         return view("places.show", [
             'place' => $place,
             'file' => $file,
             'user' => $user,
+            'visibility' => $visibility,
         ]);
     }
 
@@ -142,14 +146,25 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        $file=File::find($place->file_id);
-        $user=User::find($place->author_id);
-        return view("places.edit", [
-            'place' => $place,
-            'file' => $file,
-            'user' => $user,
-            "visibilities" => Visibility::all(),
-        ]);
+       
+        if(auth()->user()->id == $place->author_id){
+            $file=File::find($place->file_id);
+            $user=User::find($place->author_id);
+            $visibility=Visibility::find($place->visibility_id);
+            return view("places.edit", [
+                'place' => $place,
+                'file' => $file,
+                'user' => $user,
+                'visibility' => $visibility,
+                "visibilities" => Visibility::all(),
+
+            ]);
+
+        }
+        else{
+            return abort('403');
+        }
+         
     }
 
     /**
@@ -259,6 +274,55 @@ class PlaceController extends Controller
             return redirect()->route("places.index")
                 ->with('success',__('fpp_traduct.place-success-delete'));
         }  
+
+    }
+
+
+    public function favorite(Place $place)
+    {
+
+        $user=User::find($place->author_id);
+        $favorite = Favorite::create([
+            'user_id' => $user->id,
+            'place_id' => $place->id,
+        ]);
+        return redirect()->back();
+
+        //poner control errores
+
+    }
+
+
+    public function unfavorite(Place $place)
+    {
+
+        $user=User::find($place->author_id);
+        $favorite = Favorite::create([
+            'user_id' => $user->id,
+            'place_id' => $place->id,
+        ]);
+        return redirect()->back();
+
+        //////////////////////////////////////////
+
+        \Storage::disk('public')->delete($file -> filepath);
+        $file->delete();
+        if (\Storage::disk('public')->exists($file->filepath)) {
+            \Log::debug("Local storage OK");
+            // Patró PRG amb missatge d'error
+            return redirect()->route('files.show', $file)
+                ->with('error', __('fpp_traduct.file-success-delete'));
+        }
+        else{
+            \Log::debug("File Delete");
+            // Patró PRG amb missatge d'èxit
+            return redirect()->route("files.index")
+                ->with('success', __('fpp_traduct.file-error-delete'));
+        }
+
+
+
+
 
     }
 }

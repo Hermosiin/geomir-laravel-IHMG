@@ -39,7 +39,7 @@
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
-                                <td>{{ $place->visibility_id }}</td>
+                                <td>{{ $visibility->name }}</td>
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.author') }}</td>
@@ -63,6 +63,20 @@
                            </tr>
                        </thead>
                    </table>
+                   @if(!$place->isfavorite)
+                         <form action="{{ route('places.favorite',$place) }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              <button class="btn btn-primary">Add to favorites</button>
+                         </form>
+                    @else
+                         <form action="{{ route('places.unfavorite',$place) }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              <button class="btn btn-primary">Remove from favorites</button>
+                         </form>
+                    @endif
+
+                    <br>
+
                    <form method="post" action="{{ route('places.destroy', $place) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
