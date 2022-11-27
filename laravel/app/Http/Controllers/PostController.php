@@ -291,7 +291,7 @@ class PostController extends Controller
     public function unlike(post $post){
         Like::where('user_id',auth()->user()->id)
                  ->where('post_id', $post->id )->delete();
-        return redirect()->route('posts.show', $post);
+        return redirect()->back();
     }
 
 }

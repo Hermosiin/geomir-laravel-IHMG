@@ -312,7 +312,7 @@ class PlaceController extends Controller
     {
         Favorite::where('user_id',auth()->user()->id)
                  ->where('place_id', $place->id )->delete();
-        return redirect()->route('places.show', $place);
+        return redirect()->back();
 
     }
 }
