@@ -264,7 +264,7 @@ class PostController extends Controller
     public function like(Post $post)
     {
 
-        $user=User::find(auth()->user()->id());
+        $user=User::find(auth()->user()->id);
         $like = Like::create([
             'user_id' => $user->id,
             'post_id' => $post->id,
