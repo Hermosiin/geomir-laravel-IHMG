@@ -11,11 +11,15 @@ return [
    'post-error' => 'ERROR trying update post',
    'post-success-delete' => 'Post deleted successfully',
    'post-error-delete' => 'ERROR trying delete post',
+   'post-error-edit' => 'You cant edit this post, its not yours',
+
 
    'place-success' => 'Place saved successfully',
    'place-error' => 'ERROR trying update place',
    'place-success-delete' => 'Place deleted successfully',
    'place-error-delete' => 'ERROR trying delete place',
+   'place-error-edit' => 'You cant edit this place, its not yours',
+
 
    'name' => 'name',
    'description' => 'description',

@@ -162,7 +162,8 @@ class PlaceController extends Controller
 
         }
         else{
-            return abort('403');
+            return redirect()->route("places.show", $place)
+                ->with('error',__('fpp_traduct.place-error-edit'));
         }
          
     }
