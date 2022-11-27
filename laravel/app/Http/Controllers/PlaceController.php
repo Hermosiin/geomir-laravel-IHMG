@@ -281,8 +281,9 @@ class PlaceController extends Controller
 
     public function favorite(Place $place)
     {
-
-        $user=User::find($place->author_id);
+  
+        
+        $user=User::find(auth()->user()->id);
         $favorite = Favorite::create([
             'user_id' => $user->id,
             'place_id' => $place->id,
@@ -296,32 +297,6 @@ class PlaceController extends Controller
 
     public function unfavorite(Place $place)
     {
-
-        $user=User::find($place->author_id);
-        $favorite = Favorite::create([
-            'user_id' => $user->id,
-            'place_id' => $place->id,
-        ]);
-        return redirect()->back();
-
-        //////////////////////////////////////////
-
-        \Storage::disk('public')->delete($file -> filepath);
-        $file->delete();
-        if (\Storage::disk('public')->exists($file->filepath)) {
-            \Log::debug("Local storage OK");
-            // Patró PRG amb missatge d'error
-            return redirect()->route('files.show', $file)
-                ->with('error', __('fpp_traduct.file-success-delete'));
-        }
-        else{
-            \Log::debug("File Delete");
-            // Patró PRG amb missatge d'èxit
-            return redirect()->route("files.index")
-                ->with('success', __('fpp_traduct.file-error-delete'));
-        }
-
-
 
 
 
