@@ -153,7 +153,8 @@ class PostController extends Controller
 
         }
         else{
-            return abort('403');
+            return redirect()->route("posts.show", $post)
+            ->with('error',__('fpp_traduct.post-error-edit'));
         }
     }
 
