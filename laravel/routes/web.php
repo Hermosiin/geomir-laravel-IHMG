@@ -60,8 +60,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);
 
+Route::post('/posts/{post}/likes', [App\Http\Controllers\PostController::class, 'like'])->name('posts.like');
+
+Route::post('/post/{post}/unfavorites', [App\Http\Controllers\PostController::class, 'unlike'])->name('posts.unlike');
+
 Route::post('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'favorite'])->name('places.favorite');
 
 Route::post('/places/{place}/unfavorites', [App\Http\Controllers\PlaceController::class, 'unfavorite'])->name('places.unfavorite');
-
-

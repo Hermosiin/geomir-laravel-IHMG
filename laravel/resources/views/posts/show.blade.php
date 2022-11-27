@@ -31,7 +31,7 @@
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.visibility') }}</td>
-                                <td>{{ $post->visibility_id }}</td>
+                                <td>{{ $visibility->name }}</td>
                            </tr>
                            <tr>
                                 <td scope="col">{{ __('fpp_traduct.author') }}</td>
@@ -51,6 +51,18 @@
                            </tr>
                        </thead>
                    </table>
+                   @if(!$post->islike)
+                         <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              <button class="btn btn-primary">Add to likes</button>
+                         </form>
+                    @else
+                         <form action="{{ route('posts.unlike',$post) }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              <button class="btn btn-primary">Remove from likes</button>
+                         </form>
+                    @endif
+                    <br>
                    <form method="post" action="{{ route('posts.destroy', $post) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')

@@ -34,10 +34,17 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function visibility()
+    {
+        return $this->belongsTo(Visibility::class, 'visibility_id');
+    }
+
     public function liked()
     {
     return $this->belongsToMany(User::class, 'likes');
     }
+
+
 
 
 }
