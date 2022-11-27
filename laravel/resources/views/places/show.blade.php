@@ -63,17 +63,19 @@
                            </tr>
                        </thead>
                    </table>
-                   @if(!$place->isfavorite)
-                         <form action="{{ route('places.favorite',$place) }}" method="post" enctype="multipart/form-data">
-                              @csrf
-                              <button class="btn btn-primary">Add to favorites</button>
-                         </form>
-                    @else
-                         <form action="{{ route('places.unfavorite',$place) }}" method="post" enctype="multipart/form-data">
-                              @csrf
-                              <button class="btn btn-primary">Remove from favorites</button>
-                         </form>
-                    @endif
+
+                    @if($control == true)
+                            <form method="post" action="{{ route('places.unfavorite',$place) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-primary" type="submit">Remove from favorites</button>
+                            </form>  
+                        @else 
+                            <form method="post" action="{{ route('places.favorite',$place) }}" enctype="multipart/form-data">
+                                @csrf
+                                <button class="btn btn-primary" type="submit">Add to favorites</button>
+                            </form>   
+                        @endif    
 
                     <br>
 

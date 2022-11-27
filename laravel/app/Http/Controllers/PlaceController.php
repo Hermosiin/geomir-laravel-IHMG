@@ -130,12 +130,24 @@ class PlaceController extends Controller
         $file=File::find($place->file_id);
         $user=User::find($place->author_id);
         $visibility=Visibility::find($place->visibility_id);
+
+        $control = false;
+        try {
+            if (Favorite::where('user_id', '=', auth()->user()->id)->where('place_id','=', $place->id)->exists()) {
+                $control = true;
+            }
+        } catch (Exception $e) {
+            $control = false;
+        }
+
         return view("places.show", [
             'place' => $place,
             'file' => $file,
             'user' => $user,
             'visibility' => $visibility,
+            "control" => $control,
         ]);
+
     }
 
     /**
@@ -297,8 +309,9 @@ class PlaceController extends Controller
 
     public function unfavorite(Place $place)
     {
-
-
+        Favorite::where('user_id',auth()->user()->id)
+                 ->where('place_id', $place->id )->delete();
+        return redirect()->route('places.show', $place);
 
     }
 }
