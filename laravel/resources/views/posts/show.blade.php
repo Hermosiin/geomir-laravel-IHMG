@@ -41,6 +41,7 @@
                                 <td scope="col">Created At</td>
                                 <td>{{ $post->created_at }}</td>
                            </tr>
+          
                        </thead>
                    </table>
                    <table class="table">
@@ -49,19 +50,26 @@
                                <td scope="col">Image</td>
                                <td><img heigh="350px" width="350px" class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" /></td>
                            </tr>
+                           <tr>
+                                <td scope="col">Likes</td>
+                                <td>{{ $likes }}</td>
+                           </tr>
                        </thead>
                    </table>
-                   @if(!$post->islike)
-                         <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">
+                   @if($control == true)
+                         <form method="post" action="{{ route('posts.unlike',$post) }}" enctype="multipart/form-data">
                               @csrf
-                              <button class="btn btn-primary">Add to likes</button>
-                         </form>
-                    @else
-                         <form action="{{ route('posts.unlike',$post) }}" method="post" enctype="multipart/form-data">
+                              @method('DELETE')
+                              <button class="btn btn-primary" type="submit">Remove from likes</button>
+                              
+                         </form> 
+                    @else 
+                         <form method="post" action="{{ route('posts.like',$post) }}" enctype="multipart/form-data">
                               @csrf
-                              <button class="btn btn-primary">Remove from likes</button>
-                         </form>
-                    @endif
+                              <button class="btn btn-primary" type="submit">Add to likes</button>
+                         </form> 
+                    @endif 
+
                     <br>
                    <form method="post" action="{{ route('posts.destroy', $post) }}" enctype="multipart/form-data">
                         @csrf

@@ -61,6 +61,10 @@
                                <td scope="col">Image</td>
                                <td><img heigh="350px" width="350px" class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" /></td>
                            </tr>
+                           <tr>
+                                <td scope="col">Favorites</td>
+                                <td>{{ $favorites }}</td>
+                           </tr>
                        </thead>
                    </table>
 
@@ -70,12 +74,12 @@
                                 @method('DELETE')
                                 <button class="btn btn-primary" type="submit">Remove from favorites</button>
                             </form>  
-                        @else 
-                            <form method="post" action="{{ route('places.favorite',$place) }}" enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-primary" type="submit">Add to favorites</button>
-                            </form>   
-                        @endif    
+                    @else 
+                         <form method="post" action="{{ route('places.favorite',$place) }}" enctype="multipart/form-data">
+                              @csrf
+                              <button class="btn btn-primary" type="submit">Add to favorites</button>
+                         </form>   
+                    @endif    
 
                     <br>
 

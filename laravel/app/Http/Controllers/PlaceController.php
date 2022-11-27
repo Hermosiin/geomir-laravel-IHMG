@@ -130,6 +130,7 @@ class PlaceController extends Controller
         $file=File::find($place->file_id);
         $user=User::find($place->author_id);
         $visibility=Visibility::find($place->visibility_id);
+        $contfavorites = Favorite::where('place_id', '=', $place->id)->count();
 
         $control = false;
         try {
@@ -146,6 +147,7 @@ class PlaceController extends Controller
             'user' => $user,
             'visibility' => $visibility,
             "control" => $control,
+            "favorites" => $contfavorites,
         ]);
 
     }
@@ -302,7 +304,6 @@ class PlaceController extends Controller
         ]);
         return redirect()->back();
 
-        //poner control errores
 
     }
 

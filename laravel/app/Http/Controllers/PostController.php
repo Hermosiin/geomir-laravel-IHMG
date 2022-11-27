@@ -122,12 +122,26 @@ class PostController extends Controller
         $file=File::find($post->file_id);
         $user=User::find($post->author_id);
         $visibility=Visibility::find($post->visibility_id);
+        $contlikes = Like::where('post_id', '=', $post->id)->count();
+
+        $control = false;
+        try {
+            if (Like::where('user_id', '=', auth()->user()->id)->where('post_id','=', $post->id)->exists()) {
+                $control = true;
+            }
+        } catch (Exception $e) {
+            $control = false;
+        }
+
         return view("posts.show", [
             'post' => $post,
             'file' => $file,
             'user' => $user,
             'visibility' => $visibility,
+            "control" => $control,
+            "likes" => $contlikes,
         ]);
+
     }
 
     /**
@@ -271,20 +285,13 @@ class PostController extends Controller
         ]);
         return redirect()->back();
 
-        //poner control errores
+        
     }
     
-    // public function unlike(Post $post)
-    // {
-
-    //     $user=User::find($post->author_id);
-    //     $like = Like::create([
-    //         'user_id' => $user->id,
-    //         'post_id' => $post->id,
-    //     ]);
-    //     return redirect()->back();
-
-    //     //poner control errores
-    // }
+    public function unlike(post $post){
+        Like::where('user_id',auth()->user()->id)
+                 ->where('post_id', $post->id )->delete();
+        return redirect()->route('posts.show', $post);
+    }
 
 }
