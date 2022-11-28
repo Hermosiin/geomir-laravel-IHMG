@@ -19,6 +19,16 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+    $this->middleware('permission:places.list')->only('index');
+    $this->middleware('permission:places.create')->only(['create','store']);
+    $this->middleware('permission:places.read')->only('show');
+    $this->middleware('permission:places.update')->only(['edit','update']);
+    $this->middleware('permission:places.delete')->only('destroy');
+    }
+
     public function index()
     {
         return view("places.index", [

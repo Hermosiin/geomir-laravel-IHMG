@@ -42,15 +42,15 @@ Route::get('/', function (Request $request) {
 
 //MIDDLEWARE CRUD Files
 Route::resource('files', FileController::class)
-   ->middleware(['auth', 'permission:files']);
+   ->middleware(['auth']);
 
 //MIDDLEWARE CRUD PLACES
 Route::resource('places', PlaceController::class)
-   ->middleware(['auth', 'permission:places']);
+   ->middleware(['auth']);
 
 //MIDDLEWARE CRUD POSTS
 Route::resource('posts', PostController::class)
-   ->middleware(['auth', 'permission:posts']);
+   ->middleware(['auth']);
 
 
 

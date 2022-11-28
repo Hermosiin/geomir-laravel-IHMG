@@ -13,6 +13,15 @@ use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+    $this->middleware('permission:posts.list')->only('index');
+    $this->middleware('permission:posts.create')->only(['create','store']);
+    $this->middleware('permission:posts.read')->only('show');
+    $this->middleware('permission:posts.update')->only(['edit','update']);
+    $this->middleware('permission:posts.delete')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
