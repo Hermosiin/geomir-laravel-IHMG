@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://kit.fontawesome.com/3e4c1a6931.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="app">
@@ -22,7 +24,7 @@
             <img src="/img/logo.png" style="margin-right:20px;"class="mida-logo"/>
             <h1 style="margin-left:20px; color:white;">GeoMir</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa-solid fa-2x fa-bars"></i>
             </button>
 
             <div class="collapse navbar-collapse"  id="navbarSupportedContent">
