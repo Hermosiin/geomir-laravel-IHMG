@@ -38,7 +38,6 @@
                     
 
                     <div class="div-btn-post">
-                        <a href=""><i class="fa-solid fa-star"></i></a>
                         <a href="" ><i class="fa-solid fa-comments"></i></a>
 
                         <a class="btn-derecha" href="{{ route('places.show', $place) }}" role="button"><i class="fa-sharp fa-solid fa-eye"></i></a>

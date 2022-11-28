@@ -24,7 +24,6 @@
                 
 
                 <div class="div-btn-post">
-                    <a href="" ><i class="fa-solid fa-heart"></i></a>
                     <a href="" ><i class="fa-solid fa-comments"></i></a>
                     <a class="btn-derecha" href="{{ route('posts.show', $post) }}" role="button"><i class="fa-sharp fa-solid fa-eye"></i></a>
                     
