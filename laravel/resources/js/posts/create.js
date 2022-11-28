@@ -7,8 +7,11 @@ const form = document.getElementById("create")
 form.addEventListener("submit", function( event ) {
    // Reset errors messages
    // TODO
-   document.querySelector('.error').innerHTML = "";
-   document.querySelector('.error').classList.remove('show');
+   for(let i = 0; i < document.querySelectorAll('.error').length; i++){
+     document.querySelectorAll('.error')[i].innerHTML = "";
+     document.querySelectorAll('.error')[i].classList.remove('show');
+
+   }
 
    // Create validation
    let data = {
