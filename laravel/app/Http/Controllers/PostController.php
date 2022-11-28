@@ -283,7 +283,7 @@ class PostController extends Controller
             'user_id' => $user->id,
             'post_id' => $post->id,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success',__('fpp_traduct.like'));
 
         
     }
@@ -291,7 +291,7 @@ class PostController extends Controller
     public function unlike(post $post){
         Like::where('user_id',auth()->user()->id)
                  ->where('post_id', $post->id )->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success',__('fpp_traduct.unlike'));
     }
 
 }

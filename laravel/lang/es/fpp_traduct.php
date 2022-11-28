@@ -30,5 +30,10 @@ return [
    'author' => 'autor',
    'body' => 'mensaje',
    'file' => 'archivo',
+
+   'like' => 'Añadido a me gusta',
+   'unlike' => 'Eliminado de me gusta',
+   'favorite' => 'Añadido a favoritos',
+   'unfavorite' => 'Eliminado de favoritos',
   
 ];

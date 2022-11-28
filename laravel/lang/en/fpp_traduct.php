@@ -31,5 +31,10 @@ return [
    'body' => 'body',
    'file' => 'file',
 
+   'like' => 'Added to likes',
+   'unlike' => 'Removed from likes',
+   'favorite' => 'Added to favorites',
+   'unfavorite' => 'Removed from favorites',
+
   
 ];

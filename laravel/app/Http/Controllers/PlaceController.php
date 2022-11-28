@@ -302,7 +302,7 @@ class PlaceController extends Controller
             'user_id' => $user->id,
             'place_id' => $place->id,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success',__('fpp_traduct.favorite'));
 
 
     }
@@ -312,7 +312,7 @@ class PlaceController extends Controller
     {
         Favorite::where('user_id',auth()->user()->id)
                  ->where('place_id', $place->id )->delete();
-        return redirect()->back();
+        return redirect()->back()->with('error',__('fpp_traduct.unfavorite'));
 
     }
 }

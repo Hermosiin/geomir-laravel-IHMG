@@ -30,5 +30,12 @@ return [
    'body' => 'missatge',
    'file' => 'fitxer',
 
+   'like' => 'Afegit a magrada',
+   'unlike' => 'Eliminat de magrada',
+   'favorite' => 'Afegit a favorits',
+   'unfavorite' => 'Eliminat de favorits',
+
+   
+
   
 ];
