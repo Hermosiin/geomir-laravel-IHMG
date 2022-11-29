@@ -17,7 +17,7 @@
 
     @section('content')
         <main>
-        <aside>
+        <aside class="esconder-aside">
             <nav>
                 <ul class="botonera2">
                     <li><a href="{{ url('/files') }}">{{ __('Files') }}</a>
@@ -38,8 +38,18 @@
                 </div>
             </nav>
         </aside>
-        <article><img src="./img/mapa.jpg"/></article>
+        <article class="img-media"><img src="./img/mapa.jpg"/></article>
+        
+        
+
     </main>
+    <footer class="mostrar-botones">
+        <ul class="botonera2">
+            <li><a href="{{ url('/files') }}">{{ __('Files') }}</a>
+            <li><a href="{{ url('/places') }}">{{ __('Places') }}</a>
+            <li><a href="{{ url('/posts') }}">{{ __('Posts') }}</a>
+        </ul>
+    </footer>
     @endsection
 
 </x-app-layout>

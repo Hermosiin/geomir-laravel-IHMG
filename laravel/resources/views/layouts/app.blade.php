@@ -21,22 +21,26 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md" >
-            <img src="/img/logo.png" style="margin-right:20px;"class="mida-logo"/>
-            <h1 style="margin-left:20px; color:white;">GeoMir</h1>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <i class="fa-solid fa-2x fa-bars"></i>
-            </button>
+            <div class="left">
+                <img src="/img/logo.png" class="mida-logo"/>
+                <h1 style="margin-left:20px; color:white;">GeoMir</h1>
+            </div>
+            <div class="center">
 
-            <div class="collapse navbar-collapse"  id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
 
                 </ul>
-                <form class="d-flex" role="search">
-                    <input style="background-color:white;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" style="background-color:#ffd74d; color:black; border:2px solid black;" type="submit">Search</button>
-                </form>
+                <div class="buscador">
+                    <form class="d-flex" role="search">
+                        <input style="background-color:white;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" style="background-color:#ffd74d; color:black; border:2px solid black;" type="submit">Search</button>
+                    </form>
+                </div>
 
+            </div>
+
+            <div class="right">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto" style="margin-right:50px; color:white;">
                 @include('partials.language-switcher')
@@ -74,11 +78,12 @@
                     @endguest
                 </ul>
             </div>
+            
         </nav>
 
-        <main class="py-4" >
+        <main>
             @include('flash')
-            @yield('content')
+            @yield('content')   
         </main>
     </div>
 </body>
