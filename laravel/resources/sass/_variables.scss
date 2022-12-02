@@ -506,3 +506,165 @@ ul.botonera-perfils li > div > p {
         margin-left: 0px;
     }
 }
+
+.div-about{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.container{
+
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    justify-content: space-between;
+    
+
+}
+.contenido{
+    display: flex;
+    flex-direction: column;
+}
+.card{
+    width: 30%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #BCBCBC;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    transition: all 400ms ease;
+
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px white;
+    transform: translateY(-3%);
+}
+
+.card .contenido{
+    padding: 15px;
+    text-align: center;
+}
+
+.card .contenido h3{
+
+    font-weight:400; 
+    margin-bottom: 15px;
+}
+
+.card .contenido a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    color: black;
+    border :1px solid #ffd74b;
+    border-radius: 4px;
+    transition: all 400ms ease;
+
+}
+
+.card .contenido a:hover{
+    background-color: #ffd74b;
+    color: black;
+
+}
+
+.contenedor-imagenes{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    cursor: pointer;
+}
+
+.contenedor-imagenes div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.caja1-marc{
+
+    background: url(/public/img/foto.webp);
+    background-size: 100% 100%;
+}
+
+.caja2-marc{
+
+    background: url(/public/img/logo.png);
+    background-size: 100% 100%;
+    transition: 0.6s;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+}
+
+.caja2-marc:hover{
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+.caja1-marc:hover ~ .caja2-marc{
+
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+}
+
+
+.trabajo-marc{
+
+    padding: 1.5rem 5rem;
+    background: white;
+    border: 0 solid white;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.trabajo-marc::before{
+    content: 'MAQUETADOR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: grey;
+    transition: .2s ease;
+    
+}
+
+.trabajo-marc::after{
+    content: 'Follador de abuelas';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: grey;
+    transition: .2s ease;
+    opacity: 0;
+}
+
+.trabajo-marc:hover::before{
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;    
+}
+
+.trabajo-marc:hover::after{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;    
+}
+
+
+
+
+
+
+
+
+
+
+
