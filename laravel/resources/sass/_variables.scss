@@ -590,27 +590,63 @@ ul.botonera-perfils li > div > p {
 
 .caja1-marc{
 
-    background: url(/public/img/foto.webp);
+    background: url(/public/img/marc1.png);
     background-size: 100% 100%;
+    filter: contrast(150%);
+
+   
 }
 
 .caja2-marc{
 
-    background: url(/public/img/logo.png);
+    background: url(/public/img/marc2.png);
     background-size: 100% 100%;
     transition: 0.6s;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .caja2-marc:hover{
 
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    
 }
 
 .caja1-marc:hover ~ .caja2-marc{
 
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    
+
+}
+
+.caja1-ismael{
+
+    background: url(/public/img/ismael1.jpeg);
+    background-size: 100% 100%;
+    filter: contrast(150%);
+}
+
+.caja2-ismael{
+
+    background: url(/public/img/ismael2.jpeg);
+    background-size: 100% 100%;
+    transition: 0.6s;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.caja2-ismael:hover{
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+}
+
+.caja1-ismael:hover ~ .caja2-ismael{
+
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
 
 }
 
@@ -637,7 +673,7 @@ ul.botonera-perfils li > div > p {
 }
 
 .trabajo-marc::after{
-    content: 'Follador de abuelas';
+    content: 'ESCUCHAR AL JUL';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -653,6 +689,48 @@ ul.botonera-perfils li > div > p {
 }
 
 .trabajo-marc:hover::after{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;    
+}
+
+.trabajo-ismael{
+
+    padding: 1.5rem 5rem;
+    background: white;
+    border: 0 solid white;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.trabajo-ismael::before{
+    content: 'SCRUM MASTER';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: grey;
+    transition: .2s ease;
+    
+}
+
+.trabajo-ismael::after{
+    content: 'JUGADOR DE CSGO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: grey;
+    transition: .2s ease;
+    opacity: 0;
+}
+
+.trabajo-ismael:hover::before{
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;    
+}
+
+.trabajo-ismael:hover::after{
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;    
 }
