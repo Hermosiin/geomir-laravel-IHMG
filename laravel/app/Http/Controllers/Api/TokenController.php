@@ -87,7 +87,7 @@ class TokenController extends Controller
         
         return response()->json([
             "success"   => true,
-            "message" => "Invalid login credentials",
+            "message" => "Log out correctly",
 
         ]);
     }
