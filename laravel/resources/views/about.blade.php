@@ -42,7 +42,6 @@
         </div>
 
         
-        
     </div>
     <nav class="div-bnt-menu">
         <a href="{{ route('dashboard') }}" role="button" title="Enrere"><i class="fa-solid fa-arrow-rotate-left"></i></a>

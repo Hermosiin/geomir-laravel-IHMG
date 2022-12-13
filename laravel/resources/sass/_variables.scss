@@ -3,7 +3,7 @@ $body-bg: #3c3c3c;
 $colormenu:black;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -413,7 +413,6 @@ ul.botonera-perfils li > div > p {
 
 
 
-
 @media (max-width: 830px){
 
     .esconder-aside{
@@ -529,7 +528,6 @@ ul.botonera-perfils li > div > p {
     max-width: 1100px;
     justify-content: space-between;
     
-
 }
 .contenido{
     display: flex;
@@ -597,7 +595,7 @@ ul.botonera-perfils li > div > p {
 
 .caja1-marc{
 
-    background: url(/public/img/marc1.png);
+    background: url(/public/img/marc1.PNG);
     background-size: 100% 100%;
     filter: contrast(150%);
 
@@ -606,7 +604,7 @@ ul.botonera-perfils li > div > p {
 
 .caja2-marc{
 
-    background: url(/public/img/marc2.png);
+    background: url(/public/img/marc2.PNG);
     background-size: 100% 100%;
     transition: 0.6s;
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
