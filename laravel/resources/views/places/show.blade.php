@@ -2,9 +2,9 @@
  
 @section('content')
 <div class="container">
-   <div class="row justify-content-center">
+   <div class="row justify-content-center" style="width: 100%; margin-top: 1vh; border-radius: 20px;">
        <div class="col-md-8">
-           <div class="card">
+           <div class="card" style="width:100%;">
                <div class="card-header">{{ __('Places') }}</div>
                <div class="card-body">
                    <table class="table">
