@@ -29,6 +29,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/about', function () {
+   return view('about');
+});
+
 Route::get('mail/test', [MailController::class, 'test']);
 
 require __DIR__.'/auth.php';
@@ -66,3 +70,4 @@ Route::delete('/places/{place}/favorite', [App\Http\Controllers\PlaceController:
 
 Route::post('/posts/{post}/like', [App\Http\Controllers\PostController::class, 'like'])->name('posts.like');
 Route::delete('/posts/{post}/like', [App\Http\Controllers\PostController::class, 'unlike'])->name('posts.unlike');
+
