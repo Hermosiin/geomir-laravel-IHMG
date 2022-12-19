@@ -527,8 +527,8 @@ ul.botonera-perfils li > div > p {
     width: 100%;
     max-width: 1100px;
     justify-content: space-between;
-    
 }
+
 .contenido{
     display: flex;
     flex-direction: column;
@@ -741,12 +741,32 @@ ul.botonera-perfils li > div > p {
 }
 
 
+#modal1::backdrop{
+    background-color: rgba(0,0,0,0.55);
+}
 
 
+#modal1{
+    width: 1000px;
+    max-width: 80%;
+    height: 800px;
+    background-color: #BCBCBC;
+    justify-content: center;
+}
 
+.flex-botones-model{
+    display: flex;
+    flex-direction: row;
+}
 
+.flex-botones-model button{
 
-
+    background-color: #ffd74b;
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: black;
+    max-width:100%;
+}
 
 
 
