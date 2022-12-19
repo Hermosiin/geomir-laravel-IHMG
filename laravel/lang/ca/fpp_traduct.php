@@ -12,13 +12,14 @@ return [
    'post-success-delete' => 'Post eliminat correctament',
    'post-error-delete' => 'ERROR eliminant el post',
    'post-error-edit' => 'No pots editar aquest post, no es teu',
+   'post-error-delete3' => 'No pots eliminar aquest post, no es teu',
 
 
    'place-success' => 'Place desat correctament',
    'place-error' => 'ERROR pujant el place',
    'place-success-delete' => 'Place eliminat correctament',
    'place-error-delete' => 'ERROR eliminant el place',
-   'place-error-edit' => 'No pots editar aquest lloc, no es teu',
+   'place-error-delete3' => 'No pots eliminar aquest lloc, no es teu',
 
    'name' => 'nom',
    'description' => 'descripció',

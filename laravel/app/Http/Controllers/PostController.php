@@ -263,25 +263,32 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $file=File::find($post->file_id);
+        if(auth()->user()->id == $post->author_id){
 
-        \Storage::disk('public')->delete($post -> id);
-        $post->delete();
+            $file=File::find($post->file_id);
 
-        \Storage::disk('public')->delete($file -> filepath);
-        $file->delete();
-        if (\Storage::disk('public')->exists($post->id)) {
-            \Log::debug("Local storage OK");
-            // Patró PRG amb missatge d'error
-            return redirect()->route('posts.show', $post)
-                ->with('error',__('fpp_traduct.post-error-delete'));
+            \Storage::disk('public')->delete($post -> id);
+            $post->delete();
+
+            \Storage::disk('public')->delete($file -> filepath);
+            $file->delete();
+            if (\Storage::disk('public')->exists($post->id)) {
+                \Log::debug("Local storage OK");
+                // Patró PRG amb missatge d'error
+                return redirect()->route('posts.show', $post)
+                    ->with('error',__('fpp_traduct.post-error-delete'));
+            }
+            else{
+                \Log::debug("Post Delete");
+                // Patró PRG amb missatge d'èxit
+                return redirect()->route("posts.index")
+                    ->with('success',__('fpp_traduct.post-success-delete'));
+            } 
         }
         else{
-            \Log::debug("Post Delete");
-            // Patró PRG amb missatge d'èxit
-            return redirect()->route("posts.index")
-                ->with('success',__('fpp_traduct.post-success-delete'));
-        }  
+            return redirect()->route("posts.show", $post)
+                ->with('error',__('fpp_traduct.post-error-delete3'));
+        }
     }
 
     public function like(Post $post)

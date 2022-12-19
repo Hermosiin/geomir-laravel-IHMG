@@ -280,25 +280,33 @@ class PlaceController extends Controller
     public function destroy(Place $place)
     {
 
-        $file=File::find($place->file_id);
+        if(auth()->user()->id == $place->author_id){
 
-        \Storage::disk('public')->delete($place -> id);
-        $place->delete();
+            $file=File::find($place->file_id);
 
-        \Storage::disk('public')->delete($file -> filepath);
-        $file->delete();
-        if (\Storage::disk('public')->exists($place->id)) {
-            \Log::debug("Local storage OK");
-            // Patró PRG amb missatge d'error
-            return redirect()->route('places.show', $place)
-                ->with('error',__('fpp_traduct.place-error-delete'));
+            \Storage::disk('public')->delete($place -> id);
+            $place->delete();
+
+            \Storage::disk('public')->delete($file -> filepath);
+            $file->delete();
+            if (\Storage::disk('public')->exists($place->id)) {
+                \Log::debug("Local storage OK");
+                // Patró PRG amb missatge d'error
+                return redirect()->route('places.show', $place)
+                    ->with('error',__('fpp_traduct.place-error-delete'));
+            }
+            else{
+                \Log::debug("Place Delete");
+                // Patró PRG amb missatge d'èxit
+                return redirect()->route("places.index")
+                    ->with('success',__('fpp_traduct.place-success-delete'));
+            } 
+            
         }
         else{
-            \Log::debug("Place Delete");
-            // Patró PRG amb missatge d'èxit
-            return redirect()->route("places.index")
-                ->with('success',__('fpp_traduct.place-success-delete'));
-        }  
+            return redirect()->route("places.show", $place)
+                ->with('error',__('fpp_traduct.place-error-delete3'));
+        }
 
     }
 

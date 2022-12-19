@@ -12,13 +12,15 @@ return [
    'post-success-delete' => 'Post eliminado correctamente',
    'post-error-delete' => 'ERROR al eliminar el post',
    'post-error-edit' => 'No puedes editar esta publicacion, no es tuya',
+   'post-error-delete3' => 'No puedes eliminar esta publicacion, no es tuya',
 
 
    'place-success' => 'Place guardado correctamente',
    'place-error' => 'ERROR al subir el place',
    'place-success-delete' => 'Place eliminado correctamente',
    'place-error-delete' => 'ERROR al eliminar el place',
-   'place-error-edit' => 'No puedes editar este sitio, no es tuya',
+   'place-error-edit' => 'No puedes editar este sitio, no es tuyo',
+   'place-error-delete3' => 'No puedes eliminar este sitio, no es tuyo',
 
 
    'name' => 'nombre',
