@@ -757,6 +757,8 @@ ul.botonera-perfils li > div > p {
 .flex-botones-model{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex-botones-model button{

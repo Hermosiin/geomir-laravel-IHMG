@@ -26,15 +26,23 @@
                 <br> 
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false" >
                     <div class="carousel-inner" >
-                        <div class="carousel-item active">
-                            <video width="100%" height="70%" autoplay>
+                        <div class="carousel-item active">  
+                            <video id="miquel" width="100%" height="70%">
                                 <source src="./img/golmessi93.mp4" type="video/mp4">
                             </video>
+                            <div class="flex-botones-model">
+                                <button onclick="playVid1Marc()" type="button">Play Video</button>
+                                <button onclick="pauseVid1Marc()" type="button">Pause Video</button>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <video id="Messi" width="100%" height="70%">
-                                <source src="./img/golmessibilbao.mp4" type="video/mp4">
+                        <div class="carousel-item ">
+                            <video id="messi2" width="100%" height="540px">
+                                <source src="./img/miqueel.mp4" type="video/mp4">
                             </video>
+                            <div class="flex-botones-model">
+                                <button onclick="playVid2Marc()" type="button">Play Video</button>
+                                <button onclick="pauseVid2Marc()" type="button">Pause Video</button>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -49,13 +57,9 @@
                 <br>
                 <br>
                 <div class="flex-botones-model">
-                    <button onclick="playVid1()" type="button">Play Video</button>
-                    <button onclick="pauseVid1()" type="button">Pause Video</button>
                     <button id="cerrarModal1">Cerrar</button>
                 </div>
             </dialog>
-
-
 
 
             <div class="carta">
@@ -79,15 +83,23 @@
                 <br> 
                 <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="false" >
                     <div class="carousel-inner" >
-                        <div class="carousel-item active">
-                            <video width="100%" height="70%" autoplay>
+                        <div class="carousel-item active">  
+                            <video id="csgo1" width="100%" height="70%">
                                 <source src="./img/csgo2.mp4" type="video/mp4">
                             </video>
+                            <div class="flex-botones-model">
+                                <button onclick="playVid1Ismael()" type="button">Play Video</button>
+                                <button onclick="pauseVid1Ismael()" type="button">Pause Video</button>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <video id="Csgo" width="100%" height="70%">
+                        <div class="carousel-item ">
+                            <video id="csgo2" width="100%" height="540px">
                                 <source src="./img/csgo1.mp4" type="video/mp4">
                             </video>
+                            <div class="flex-botones-model">
+                                <button onclick="playVid2Ismael()" type="button">Play Video</button>
+                                <button onclick="pauseVid2Ismael()" type="button">Pause Video</button>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
@@ -102,8 +114,6 @@
                 <br>
                 <br>
                 <div class="flex-botones-model">
-                    <button onclick="playVid2()" type="button">Play Video</button>
-                    <button onclick="pauseVid2()" type="button">Pause Video</button>
                     <button id="cerrarModal2">Cerrar</button>
                 </div>
             </dialog>
@@ -176,15 +186,50 @@
         })
 
 
-        var vid = document.getElementById("Messi"); 
+        var vid1 = document.getElementById("miquel"); 
 
-        function playVid1() { 
-            vid.play(); 
+        function playVid1Marc() { 
+            vid1.play(); 
         } 
 
-        function pauseVid1() { 
-            vid.pause(); 
+        function pauseVid1Marc() { 
+            vid1.pause(); 
         }
+
+
+        var vid2 = document.getElementById("messi2"); 
+
+        function playVid2Marc() { 
+            vid2.play(); 
+        } 
+
+        function pauseVid2Marc() { 
+            vid2.pause(); 
+        }
+
+        var vid3 = document.getElementById("csgo1"); 
+
+        function playVid1Ismael() { 
+            vid3.play(); 
+        } 
+
+        function pauseVid1Ismael() { 
+            vid3.pause(); 
+        }
+
+        var vid4 = document.getElementById("csgo2"); 
+
+        function playVid2Ismael() { 
+            vid4.play(); 
+        } 
+
+        function pauseVid2Ismael() { 
+            vid4.pause(); 
+        }
+
+
+
+
 
         const btnAbrir2 = document.querySelector("#abrirModal2");
         const btnCerrar2 = document.querySelector("#cerrarModal2");
@@ -199,21 +244,10 @@
         })
 
 
-        var vid2 = document.getElementById("Csgo"); 
-
-        function playVid2() { 
-            vid2.play(); 
-        } 
-
-        function pauseVid2() { 
-            vid2.pause(); 
-        }
 
 
 
-
-
-        
+       
     </script>
 
 
