@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\PlaceController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,8 @@ Route::post('register', [TokenController::class, 'register']);
 
 
 Route::apiResource('files', FileController::class);
-
+Route::apiResource('posts', PostController::class);
 Route::apiResource('places', PlaceController::class);
+
+
 
