@@ -1,18 +1,18 @@
 <?php
-
+ 
 namespace Tests\Feature;
-
+ 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
-
-class PostTest extends TestCase
+ 
+class PlaceTest extends TestCase
 {
-    public function test_file_list()
+   public function test_place_list()
    {
        // List all files using API web service
-       $response = $this->getJson("/api/files");
+       $response = $this->getJson("/api/places");
        // Check OK response
        $this->_test_ok($response);
        // Check JSON dynamic values
@@ -21,12 +21,24 @@ class PostTest extends TestCase
        );
    }
  
-   public function test_file_create() : object
+   public function test_place_create() : object
    {
        // Create fake file
        $name  = "avatar.png";
        $size = 500; /*KB*/
        $upload = UploadedFile::fake()->image($name)->size($size);
+
+       // Create fake post
+
+       $placeName = "Adioooos";
+       $placeDescription = "Me llamo ismael y hago places";
+       $placeLatitude = 10;
+       $placeLatitude = 10;
+       $placeCategory_id = 1;
+       $placeVisibility_id = 1;
+       $placeAuthor_id = 1;
+
+
        // Upload fake file using API web service
        $response = $this->postJson("/api/files", [
            "upload" => $upload,
@@ -66,22 +78,19 @@ class PostTest extends TestCase
    /**
     * @depends test_file_create
     */
-   public function test_file_read(object $file)
+   public function test_place_read(object $place)
    {
        // Read one file
-       $response = $this->getJson("/api/files/{$file->id}");
+       $response = $this->getJson("/api/places/{$place->id}");
        // Check OK response
        $this->_test_ok($response);
-       // Check JSON exact values
-       $response->assertJsonPath("data.filepath",
-           fn ($filepath) => !empty($filepath)
-       );
+
    }
   
    public function test_file_read_notfound()
    {
        $id = "not_exists";
-       $response = $this->getJson("/api/files/{$id}");
+       $response = $this->getJson("/api/places/{$id}");
        $this->_test_notfound($response);
    }
  
@@ -90,24 +99,7 @@ class PostTest extends TestCase
     */
    public function test_file_update(object $file)
    {
-       // Create fake file
-       $name  = "photo.jpg";
-       $size = 1000; /*KB*/
-       $upload = UploadedFile::fake()->image($name)->size($size);
-       // Upload fake file using API web service
-       $response = $this->putJson("/api/files/{$file->id}", [
-           "upload" => $upload,
-       ]);
-       // Check OK response
-       $this->_test_ok($response);
-       // Check validation errors
-       $response->assertValid(["upload"]);
-       // Check JSON exact values
-       $response->assertJsonPath("data.filesize", $size*1024);
-       // Check JSON dynamic values
-       $response->assertJsonPath("data.filepath",
-           fn ($filepath) => str_contains($filepath, $name)
-       );
+       
    }
  
    /**
@@ -115,23 +107,12 @@ class PostTest extends TestCase
     */
    public function test_file_update_error(object $file)
    {
-       // Create fake file with invalid max size
-       $name  = "photo.jpg";
-       $size = 3000; /*KB*/
-       $upload = UploadedFile::fake()->image($name)->size($size);
-       // Upload fake file using API web service
-       $response = $this->putJson("/api/files/{$file->id}", [
-           "upload" => $upload,
-       ]);
-       // Check ERROR response
-       $this->_test_error($response);
+       
    }
  
    public function test_file_update_notfound()
    {
-       $id = "not_exists";
-       $response = $this->putJson("/api/files/{$id}", []);
-       $this->_test_notfound($response);
+       
    }
  
    /**
@@ -139,17 +120,12 @@ class PostTest extends TestCase
     */
    public function test_file_delete(object $file)
    {
-       // Delete one file using API web service
-       $response = $this->deleteJson("/api/files/{$file->id}");
-       // Check OK response
-       $this->_test_ok($response);
+       
    }
  
    public function test_file_delete_notfound()
    {
-       $id = "not_exists";
-       $response = $this->deleteJson("/api/files/{$id}");
-       $this->_test_notfound($response);
+       
    }
  
    protected function _test_ok($response, $status = 200)
@@ -198,3 +174,4 @@ class PostTest extends TestCase
        );       
    }
 }
+
