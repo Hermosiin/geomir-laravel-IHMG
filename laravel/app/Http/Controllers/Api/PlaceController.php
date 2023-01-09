@@ -11,6 +11,7 @@ use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
+
 class PlaceController extends Controller
 {
     /**
@@ -102,7 +103,7 @@ class PlaceController extends Controller
             // Patró PRG amb missatge d'error
             return response()->json([
                 'success'  => false,
-                'message' => 'Error uploading place'
+                'message' => 'Error storing place'
             ], 500);
         }
     }
@@ -129,6 +130,8 @@ class PlaceController extends Controller
             ], 200);
 
         }
+
+        
     }
 
     /**
@@ -201,7 +204,7 @@ class PlaceController extends Controller
                 return response()->json([
                     'success' => true,
                     'data'    => $place
-                ], 200);
+                ], 201);
 
 
             } else {

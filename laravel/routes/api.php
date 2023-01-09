@@ -33,5 +33,8 @@ Route::apiResource('files', FileController::class);
 Route::apiResource('posts', PostController::class);
 Route::apiResource('places', PlaceController::class);
 
+Route::post('/store', [PlaceController::class, 'store'])->middleware('auth:sanctum');
+Route::post('/list', [PlaceController::class, 'list'])->middleware('auth:sanctum');
 
-
+Route::post('/places/{place}/favorite', [PlaceController::class, 'favorite'])->middleware('auth:sanctum');
+Route::delete('/places/{place}/favorite', [PlaceController::class, 'unfavorite'])->middleware('auth:sanctum');
