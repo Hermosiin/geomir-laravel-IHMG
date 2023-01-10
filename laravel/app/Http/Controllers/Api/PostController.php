@@ -38,7 +38,7 @@ class PostController extends Controller
         // Validar fitxer
         $validatedData = $request->validate([
             'upload' => 'required|mimes:gif,jpeg,jpg,mp4,png|max:1024',
-            'body' => 'required',
+            'body' => 'required|string',
             'latitude' => 'required',
             'longitude' => 'required',
             'visibility_id' => 'required',
@@ -195,7 +195,7 @@ class PostController extends Controller
                 return response()->json([
                     'success' => true,
                     'data'    => $post
-                ], 200);
+                ], 201);
 
 
             } else {
