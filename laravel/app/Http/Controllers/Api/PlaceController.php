@@ -39,8 +39,8 @@ class PlaceController extends Controller
         // Validar fitxer
         $validatedData = $request->validate([
             'upload' => 'required|mimes:gif,jpeg,jpg,mp4,png|max:1024',
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|string',
+            'description' => 'required|string',
             'latitude' => 'required',
             'longitude' => 'required',
             'category_id' => 'required',

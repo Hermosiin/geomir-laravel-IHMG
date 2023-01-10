@@ -40,6 +40,7 @@ class PlaceTest extends TestCase
             'description' => 'me gusta m07',
             'latitude'    => '8',
             'longitude'   => '12',
+            'category_id'   => '2',
             'visibility_id'   => '2',
         ];
         // TODO Omplir amb dades incorrectes
@@ -49,6 +50,7 @@ class PlaceTest extends TestCase
             'description' => 19,
             'latitude'    => '8',
             'longitude'   => '5',
+            'category_id'   => '2',
             'visibility_id'   => '2',
         ];
     }
@@ -111,6 +113,9 @@ class PlaceTest extends TestCase
         $this->_test_error($response);
     }
 
+    /**
+     * @depends test_place_create
+     */
     public function test_place_read(object $place)
     {
         // Read one file
@@ -127,6 +132,10 @@ class PlaceTest extends TestCase
         $response = $this->getJson("/api/places/{$id}");
         $this->_test_notfound($response);
     }
+
+    /**
+     * @depends test_place_create
+     */
 
     public function test_place_update(object $place)
     {
@@ -150,6 +159,10 @@ class PlaceTest extends TestCase
         return $json->data;
     }
 
+    /**
+     * @depends test_place_create
+     */
+
     public function test_place_update_error(object $place)
     {
         Sanctum::actingAs(self::$testUser);
@@ -172,6 +185,10 @@ class PlaceTest extends TestCase
         $this->_test_notfound($response);
     }
 
+    /**
+     * @depends test_place_create
+     */
+
     public function test_place_delete(object $place)
     {
         Sanctum::actingAs(self::$testUser);
@@ -180,6 +197,10 @@ class PlaceTest extends TestCase
         // Check OK response
         $this->_test_ok($response);
     }
+
+    /**
+     * @depends test_place_create
+     */
 
     public function test_place_delete_notfound()
     {
@@ -284,4 +305,5 @@ class PlaceTest extends TestCase
             'email' => self::$testUser->email,
         ]);
     }
+    
 }
