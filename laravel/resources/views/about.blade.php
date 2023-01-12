@@ -1,6 +1,7 @@
 @extends('layouts.app')
  
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
 
     <div class="div-about">
         <div class="container">
@@ -242,6 +243,18 @@
         btnCerrar2.addEventListener("click",()=>{
             modal2.close();
         })
+
+        const dragArea = document.querySelector(".container");
+
+        Sortable.create(dragArea, {
+
+            animation: 350,
+            dragClass: "drag"
+
+
+        });
+
+
 
 
 
