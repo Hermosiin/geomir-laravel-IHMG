@@ -13,6 +13,15 @@ use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+    $this->middleware('auth:sanctum')->only('store');
+    $this->middleware('auth:sanctum')->only('update');
+    $this->middleware('auth:sanctum')->only('destroy');
+    $this->middleware('auth:sanctum')->only('like');
+    $this->middleware('auth:sanctum')->only('unlike');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +47,7 @@ class PostController extends Controller
         // Validar fitxer
         $validatedData = $request->validate([
             'upload' => 'required|mimes:gif,jpeg,jpg,mp4,png|max:1024',
-            'body' => 'required',
+            'body' => 'required|string',
             'latitude' => 'required',
             'longitude' => 'required',
             'visibility_id' => 'required',
@@ -195,7 +204,7 @@ class PostController extends Controller
                 return response()->json([
                     'success' => true,
                     'data'    => $post
-                ], 200);
+                ], 201);
 
 
             } else {
@@ -268,6 +277,56 @@ class PostController extends Controller
             ], 404);
 
         } 
+    }
+
+    public function like($id)
+    {
+        $post=Post::find($id);
+        if (Like::where([
+                ['user_id', "=" , auth()->user()->id],
+                ['post_id', "=" ,$id],
+            ])->exists()) {
+            return response()->json([
+                'success'  => false,
+                'message' => 'The post is already like'
+            ], 500);
+        }else{
+            $like = Like::create([
+                'user_id' => auth()->user()->id,
+                'post_id' => $post->id,
+            ]);
+            return response()->json([
+                'success' => true,
+                'data'    => $like
+            ], 200);
+        }        
+    }
+
+    public function unlike($id)
+    {
+        $post=Post::find($id);
+        if (Like::where([['user_id', "=" ,auth()->user()->id],['post_id', "=" ,$post->id],])->exists()) {
+            
+            $like = Like::where([
+                ['user_id', "=" ,auth()->user()->id],
+                ['post_id', "=" ,$id],
+            ]);
+            $like->first();
+    
+            $like->delete();
+
+            return response()->json([
+                'success' => true,
+                'data'    => $post
+            ], 200);
+        }else{
+            return response()->json([
+                'success'  => false,
+                'message' => 'The post is not like'
+            ], 500);
+            
+        }  
+        
     }
 
 }

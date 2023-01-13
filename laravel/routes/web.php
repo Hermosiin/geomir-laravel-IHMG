@@ -33,6 +33,10 @@ Route::get('/about', function () {
    return view('about');
 });
 
+Route::get('/contact', function () {
+   return view('contact');
+});
+
 Route::get('mail/test', [MailController::class, 'test']);
 
 require __DIR__.'/auth.php';

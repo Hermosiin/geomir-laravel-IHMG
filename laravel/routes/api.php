@@ -20,18 +20,24 @@ use App\Http\Controllers\Api\PlaceController;
 |
 */
 
-Route::get('user', [TokenController::class, 'user'])->middleware(['auth:sanctum']);
+Route::get('/user', [TokenController::class, 'user'])->middleware('auth:sanctum');
 
-Route::post('logout', [TokenController::class, 'logout'])->middleware(['auth:sanctum']);
+Route::post('/logout', [TokenController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::post('login', [TokenController::class, 'login']);
+Route::post('/login', [TokenController::class, 'login']);
 
-Route::post('register', [TokenController::class, 'register']);
+Route::post('/register', [TokenController::class, 'register']);
 
 
 Route::apiResource('files', FileController::class);
 Route::apiResource('posts', PostController::class);
 Route::apiResource('places', PlaceController::class);
 
+Route::post('/places/{place}', [PlaceController::class, 'store'])->middleware('auth:sanctum');
+Route::post('/posts/{post}', [PostController::class, 'store'])->middleware('auth:sanctum');
 
+Route::post('/places/{place}/favorite', [PlaceController::class, 'favorite']);
+Route::delete('/places/{place}/favorite', [PlaceController::class, 'unfavorite']);
 
+Route::post('/posts/{post}/like', [PostController::class, 'like']);
+Route::delete('/posts/{post}/like', [PostController::class, 'unlike']);
