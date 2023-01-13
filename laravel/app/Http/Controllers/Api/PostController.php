@@ -13,6 +13,15 @@ use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+    $this->middleware('auth:sanctum')->only('store');
+    $this->middleware('auth:sanctum')->only('update');
+    $this->middleware('auth:sanctum')->only('destroy');
+    $this->middleware('auth:sanctum')->only('like');
+    $this->middleware('auth:sanctum')->only('unlike');
+    }
+    
     /**
      * Display a listing of the resource.
      *
