@@ -511,6 +511,8 @@ ul.botonera-perfils li > div > p {
     }
 }
 
+///////////////////////////////////////////////////////////////////Comença els comentaris del sprint//////////////////////////////////
+/*Clase per modificar el div principal de la pàgina*/
 .div-about{
     display: flex;
     align-items: center;
@@ -521,6 +523,7 @@ ul.botonera-perfils li > div > p {
     
 }
 
+/*Clase per modificar el div que conté els dos containers separats*/
 .container{
 
     display: flex;
@@ -529,11 +532,14 @@ ul.botonera-perfils li > div > p {
     justify-content: space-between;
 }
 
+/*Clase per fer flex amb el contingut de cada carta*/
+
 .contenido{
     display: flex;
     flex-direction: column;
 }
 
+/*Clase per modificar la forma de la carta, colors, mida,...*/
 .carta{
     width: 26.4%;
     margin: 20px;
@@ -546,15 +552,21 @@ ul.botonera-perfils li > div > p {
 
 }
 
+/*Clase per modificar la carta quan tenim el ratolí per sobre*/
+
 .carta:hover{
     box-shadow: 5px 5px 20px white;
     transform: translateY(-3%);
 }
 
+/*Clase per posar centrar el text de les cartes*/
+
 .carta .contenido{
     padding: 15px;
     text-align: center;
 }
+
+/*Clase per modificar la mida del text dels noms*/
 
 .carta .contenido h3{
 
@@ -562,24 +574,7 @@ ul.botonera-perfils li > div > p {
     margin-bottom: 15px;
 }
 
-.carta .contenido a{
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    margin-top: 10px;
-    color: black;
-    border :1px solid #ffd74b;
-    border-radius: 4px;
-    transition: all 400ms ease;
-
-}
-
-.carta .contenido a:hover{
-    background-color: #ffd74b;
-    color: black;
-
-}
-
+/*Clase per definir la mida del div del contenidor de les imatges */
 .contenedor-imagenes{
     position: relative;
     width: 345px;
@@ -587,18 +582,24 @@ ul.botonera-perfils li > div > p {
     cursor: pointer;
 }
 
+/*Clase per definir el div de dintre del div d'adalt, es a dir, el div d'adalt, té més divs dintre*/
+
 .contenedor-imagenes div{
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
+/*Clase per modificar un dels dos divs (el div 1 = caja1-marc). Posem la imatge amb sprite i contrast*/
 .caja1-marc{
 
     background: url(/public/img/colage4imgSprite.png) 0 0 ;
     filter: contrast(150%);
 
 }
+
+/*Clase per modificar el segon dels dos divs (el div 2 = caja2-marc). Posem la imatge amb sprite i en blanc i negre. També definim la transició que volem*/
+
 
 .caja2-marc{
 
@@ -609,11 +610,14 @@ ul.botonera-perfils li > div > p {
     filter: grayscale(100%);
 }
 
+/*Clase per definir que quan passem el ratolí per la imatge dos, es desplegui totalment*/
 .caja2-marc:hover{
 
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     
 }
+
+/*Clase per definir que quan passem el ratolí per la imatge una, es desplegui totalment*/
 
 .caja1-marc:hover ~ .caja2-marc{
 
@@ -622,11 +626,16 @@ ul.botonera-perfils li > div > p {
 
 }
 
+/*Clase per modificar un dels dos divs (el div 1 = caja1-ismael). Posem la imatge amb sprite i contrast*/
+
 .caja1-ismael{
 
     background: url(/public/img/colage4imgSprite.png) 0 450px ;
     filter: contrast(150%);
 }
+
+
+/*Clase per modificar el segon dels dos divs (el div 2 = caja2-ismael). Posem la imatge amb sprite i en blanc i negre. També definim la transició que volem*/
 
 .caja2-ismael{
 
@@ -637,11 +646,15 @@ ul.botonera-perfils li > div > p {
     filter: grayscale(100%);
 }
 
+/*Clase per definir que quan passem el ratolí per la imatge dos, es desplegui totalment*/
+
 .caja2-ismael:hover{
 
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
 }
+
+/*Clase per definir que quan passem el ratolí per la imatge una, es desplegui totalment*/
 
 .caja1-ismael:hover ~ .caja2-ismael{
 
@@ -650,6 +663,7 @@ ul.botonera-perfils li > div > p {
 
 }
 
+/*Clase para editar el botó de la carta*/
 
 .trabajo-marc{
 
@@ -659,7 +673,10 @@ ul.botonera-perfils li > div > p {
     cursor: default;
     position: relative;
     overflow: hidden;
+    
 }
+
+/*Clase para editar el contingut del botó abans del hover de la carta*/
 
 .trabajo-marc::before{
     content: 'MAQUETADOR';
@@ -672,7 +689,10 @@ ul.botonera-perfils li > div > p {
     
 }
 
-.trabajo-marc::after{
+/*Clase para editar el contingut del botó abans del hover de la carta*/
+
+
+.carta:hover .trabajo-marc::after{
     content: 'AMANTE DE MESSI';
     position: absolute;
     top: 50%;
@@ -680,18 +700,18 @@ ul.botonera-perfils li > div > p {
     transform: translate(-50%, -50%) scale(0);
     color: grey;
     transition: .2s ease;
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
+/*Clase para editar la transición del botó*/
 
-.trabajo-marc:hover::before{
+.carta:hover .trabajo-marc::before{
     transform: translate(-50%, -50%) scale(3);
     opacity: 0;    
 }
 
-.trabajo-marc:hover::after{
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;    
-}
+
+/*Clase para editar el botó de la carta*/
 
 .trabajo-ismael{
 
@@ -702,6 +722,9 @@ ul.botonera-perfils li > div > p {
     position: relative;
     overflow: hidden;
 }
+
+/*Clase para editar el contingut del botó abans del hover de la carta*/
+
 
 .trabajo-ismael::before{
     content: 'SCRUM MASTER';
@@ -714,7 +737,10 @@ ul.botonera-perfils li > div > p {
     
 }
 
-.trabajo-ismael::after{
+/*Clase para editar el contingut del botó abans del hover de la carta*/
+
+
+.carta:hover .trabajo-ismael::after{
     content: 'JUGADOR DE CSGO';
     position: absolute;
     top: 50%;
@@ -722,24 +748,25 @@ ul.botonera-perfils li > div > p {
     transform: translate(-50%, -50%) scale(0);
     color: grey;
     transition: .2s ease;
-    opacity: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+
 }
 
-.trabajo-ismael:hover::before{
+/*Clase para editar la transición del botó*/
+
+.carta:hover .trabajo-ismael::before{
     transform: translate(-50%, -50%) scale(3);
     opacity: 0;    
 }
 
-.trabajo-ismael:hover::after{
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;    
-}
-
+/*Clase per editar el fons de la pagina al obrir-se el modal*/
 
 .miModal::backdrop{
     background-color: rgba(0,0,0,0.55);
 }
 
+/*Clase per definir la mida del modal i color*/
 
 .miModal{
     width: 1000px;
@@ -749,6 +776,8 @@ ul.botonera-perfils li > div > p {
     justify-content: center;
 }
 
+/*Clase per definir el flex dels botons del modal*/
+ 
 .flex-botones-model{
     display: flex;
     flex-direction: row;
@@ -756,6 +785,8 @@ ul.botonera-perfils li > div > p {
     align-items: center;
 }
 
+
+/*Clase per definir els colors i mides dels botons del modal*/
 .flex-botones-model button{
 
     background-color: #ffd74b;
@@ -765,12 +796,14 @@ ul.botonera-perfils li > div > p {
     max-width:100%;
 }
 
+
+////////////////////////////////////A partir d'aqui és el nou spring////////////////////////////////////////////////
+
 .flex-contact{
     display: flex;
 
-
-
 }
+
 .fondo-cont{
     width: 100%;
     max-height: 84.6vh;

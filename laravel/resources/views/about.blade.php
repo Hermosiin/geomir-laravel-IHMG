@@ -28,7 +28,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false" >
                     <div class="carousel-inner" >
                         <div class="carousel-item active">  
-                            <video id="miquel" width="100%" height="70%">
+                            <video id="miquel" width="100%" height="70%" autoplay="true" muted="true" loop="true">
                                 <source src="./img/golmessi93.mp4" type="video/mp4">
                             </video>
                             <div class="flex-botones-model">
@@ -85,7 +85,7 @@
                 <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="false" >
                     <div class="carousel-inner" >
                         <div class="carousel-item active">  
-                            <video id="csgo1" width="100%" height="70%">
+                            <video id="csgo1" width="100%" height="70%" autoplay="true" muted="true" loop="true">
                                 <source src="./img/csgo2.mp4" type="video/mp4">
                             </video>
                             <div class="flex-botones-model">
@@ -253,7 +253,6 @@
 
 
         });
-
 
 
 
