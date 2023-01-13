@@ -23,11 +23,13 @@ class PlaceController extends Controller
     $this->middleware('auth:sanctum')->only('favorite');
     $this->middleware('auth:sanctum')->only('unfavorite');
     }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $places = Place::all();
