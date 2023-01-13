@@ -44,6 +44,8 @@
             <div class="right">
                 <!-- Right Side Of Navbar -->
                 <a class="btn" href="/about">Sobre Nosotros</a>
+                <a class="btn" href="/contact">Contactanos</a>
+
                 <ul class="navbar-nav ms-auto" style="margin-right:50px; color:white;">
                 @include('partials.language-switcher')
                     <!-- Authentication Links -->
