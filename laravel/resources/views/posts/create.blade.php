@@ -23,7 +23,10 @@
                        <thead>
                         <form method="post" id="create" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                                 @csrf
-                                @vite('resources/js/posts/create.js')
+                                @env(['local','development'])
+                                    @vite('resources/js/files/create.js')
+                                @endenv
+
                                 <div class="form-group">
                                     <tr>
                                         <td id="body">

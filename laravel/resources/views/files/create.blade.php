@@ -23,7 +23,10 @@
                        <thead>
                        <form method="post" id="create" action="{{ route('files.store') }}" enctype="multipart/form-data">
                             @csrf
-                            @vite('resources/js/files/create.js')
+                            @env(['local','development'])
+                                @vite('resources/js/files/create.js')
+                            @endenv
+
                             <div class="form-group">
                                 <label for="upload">File:</label>
                                 <input style="background-color:white;" type="file" class="form-control" name="upload"/>
