@@ -270,4 +270,54 @@ class PostController extends Controller
         } 
     }
 
+    public function like($id)
+    {
+        $post=Post::find($id);
+        if (Like::where([
+                ['user_id', "=" , auth()->user()->id],
+                ['post_id', "=" ,$id],
+            ])->exists()) {
+            return response()->json([
+                'success'  => false,
+                'message' => 'The post is already like'
+            ], 500);
+        }else{
+            $like = Like::create([
+                'user_id' => auth()->user()->id,
+                'post_id' => $post->id,
+            ]);
+            return response()->json([
+                'success' => true,
+                'data'    => $like
+            ], 200);
+        }        
+    }
+
+    public function unlike($id)
+    {
+        $post=Post::find($id);
+        if (Like::where([['user_id', "=" ,auth()->user()->id],['post_id', "=" ,$post->id],])->exists()) {
+            
+            $like = Like::where([
+                ['user_id', "=" ,auth()->user()->id],
+                ['post_id', "=" ,$id],
+            ]);
+            $like->first();
+    
+            $like->delete();
+
+            return response()->json([
+                'success' => true,
+                'data'    => $post
+            ], 200);
+        }else{
+            return response()->json([
+                'success'  => false,
+                'message' => 'The post is not like'
+            ], 500);
+            
+        }  
+        
+    }
+
 }

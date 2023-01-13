@@ -14,6 +14,15 @@ use Illuminate\Http\UploadedFile;
 
 class PlaceController extends Controller
 {
+
+    public function __construct()
+    {
+    $this->middleware('auth:sanctum')->only('store');
+    $this->middleware('auth:sanctum')->only('update');
+    $this->middleware('auth:sanctum')->only('destroy');
+    $this->middleware('auth:sanctum')->only('favorite');
+    $this->middleware('auth:sanctum')->only('unfavorite');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -277,6 +286,56 @@ class PlaceController extends Controller
 
         } 
 
+    }
+
+    public function favorite($id)
+    {
+        $place=Place::find($id);
+        if (Favorite::where([
+                ['user_id', "=" , auth()->user()->id],
+                ['place_id', "=" ,$id],
+            ])->exists()) {
+            return response()->json([
+                'success'  => false,
+                'message' => 'The place is already favorite'
+            ], 500);
+        }else{
+            $favorite = Favorite::create([
+                'user_id' => auth()->user()->id,
+                'place_id' => $place->id,
+            ]);
+            return response()->json([
+                'success' => true,
+                'data'    => $favorite
+            ], 200);
+        }        
+    }
+
+    public function unfavorite($id)
+    {
+        $place=Place::find($id);
+        if (Favorite::where([['user_id', "=" ,auth()->user()->id],['place_id', "=" ,$place->id],])->exists()) {
+            
+            $favorite = Favorite::where([
+                ['user_id', "=" ,auth()->user()->id],
+                ['place_id', "=" ,$id],
+            ]);
+            $favorite->first();
+    
+            $favorite->delete();
+
+            return response()->json([
+                'success' => true,
+                'data'    => $place
+            ], 200);
+        }else{
+            return response()->json([
+                'success'  => false,
+                'message' => 'The place is not favorite'
+            ], 500);
+            
+        }  
+        
     }
 
 }

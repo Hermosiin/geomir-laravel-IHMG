@@ -181,6 +181,57 @@ class PostTest extends TestCase
         $this->_test_notfound($response);
     }
 
+    // MIRARLO EN DETALLE
+
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_like(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        $response = $this->postJson("/api/posts/{$post->id}/like");
+        // Check OK response
+        $this->_test_ok($response);
+        
+    }
+
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_like_error(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        $response = $this->postJson("/api/posts/{$post->id}/like");
+        // Check ERROR response
+        $response->assertStatus(500);
+        
+    }
+
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_unlike(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        // Read one file
+        $response = $this->deleteJson("/api/posts/{$post->id}/like");
+        // Check OK response
+        $this->_test_ok($response);
+        
+    }
+
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_unlike_error(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        $response = $this->deleteJson("/api/posts/{$post->id}/like");
+        // Check ERROR response
+        $response->assertStatus(500);
+        
+    }
+
     /**
      * @depends test_post_create
      */
