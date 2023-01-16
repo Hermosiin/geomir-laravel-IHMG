@@ -24,7 +24,7 @@
                         <form method="post" id="create" action="{{ route('places.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 @env(['local','development'])
-                                    @vite('resources/js/files/create.js')
+                                    @vite('resources/js/places/create.js')
                                 @endenv
 
                                 <div class="form-group">
