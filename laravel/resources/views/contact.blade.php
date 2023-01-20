@@ -23,16 +23,14 @@
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
-                <figure>
-                    <a href="#">
-                        <img src="public" alt="Logo de Geomir">
-                    </a>
-                </figure>
+                <div class="logo-cont">
+                    <img src="./img/logo.png" alt="Logo de Geomir">
+                </div>
             </div>
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>
-                <p>Pagina dedica al videjuego Counter Strike.</p>
-                <p>Tenemos todo tipo de informacion sobre armas, mapas, modos y mejores jugadores del momento.</p>
+                <p>Pagina dedica para darnos a conocer.</p>
+                <p>Tenemos todo tipo de informacion sobre los mejores restaurantes y establecimientos de tu zona.</p>
             </div>
             <div class="box">
                 <h2>SIGUENOS</h2>
