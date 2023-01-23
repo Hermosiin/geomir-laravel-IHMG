@@ -37,6 +37,10 @@ Route::get('/contact', function () {
    return view('contact');
 });
 
+Route::get('/form-contacte', function () {
+   return view('form-contacte');
+});
+
 Route::get('mail/test', [MailController::class, 'test']);
 
 require __DIR__.'/auth.php';

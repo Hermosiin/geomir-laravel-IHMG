@@ -13,7 +13,7 @@
         <video src="./img/quemiras.mp4" class="video-que-miras" autoplay="true" muted="true" loop="true"></video>
         <div class="texto-encima">CONTACTA'NS!!!</div>
         <div class="texto-encima2">Envia el teu missatge</div>
-        <button class="boton-contacto">Formulari de contacte</button>
+        <a class="boton-contacto " href="./form-contacte" target="blank">Formulari de contacte</a>
     </div>
         
     <div class="mapa-contact">
