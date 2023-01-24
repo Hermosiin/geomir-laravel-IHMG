@@ -17,6 +17,9 @@
     </div>
         
     <div class="mapa-contact">
+        <h1>Vols visitar-nos?</h1>
+        <h3>Ubica'ns al mapa</h3>
+        <img src="/img/mapa.png" alt="mapa">
 
     </div>
 
