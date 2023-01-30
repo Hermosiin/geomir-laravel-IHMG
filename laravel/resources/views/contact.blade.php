@@ -1,11 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
 
 <style>
     ::-webkit-scrollbar {
-    display: none;
-}
+        display: none;
+    
+    }
+
+    #map { 
+
+        height: 700px;
+        width: 50%;
+        margin: 0 auto;
+    
+    }
+
 
 </style>
 <div class="flex-contact">
@@ -19,7 +35,13 @@
     <div class="mapa-contact">
         <h1>Vols visitar-nos?</h1>
         <h3>Ubica'ns al mapa</h3>
-        <img src="/img/mapa.png" alt="mapa">
+        <div id="map"><script>var map = L.map('map').setView([41.2310177, 1.7279358], 19);
+                                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            }).addTo(map);
+                        </script>
+        </div>
 
     </div>
 
@@ -28,7 +50,7 @@
             <div class="box">
                 <div class="logo-cont">
                     <img src="./img/logo.png" alt="Logo de Geomir">
-                </div>
+                </div> 
             </div>
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>

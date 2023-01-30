@@ -1,6 +1,10 @@
-<style>
-   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 
+<style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+    
     /* RESET RULES
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
     :root {
