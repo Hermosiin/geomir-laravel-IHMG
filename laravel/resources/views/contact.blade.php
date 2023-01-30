@@ -17,8 +17,9 @@
     #map { 
 
         height: 700px;
-        width: 50%;
+        width: 80%;
         margin: 0 auto;
+        border:2px solid black ;
     
     }
 
@@ -35,11 +36,24 @@
     <div class="mapa-contact">
         <h1>Vols visitar-nos?</h1>
         <h3>Ubica'ns al mapa</h3>
-        <div id="map"><script>var map = L.map('map').setView([41.2310177, 1.7279358], 19);
+        <div id="map"><script>var map = L.map('map').setView([41.2310177, 1.7279358], 17);
                                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                 maxZoom: 19,
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }).addTo(map);
+                            var circle = L.circle([41.2310177, 1.7285358], {
+                                color: 'red',
+                                fillColor: '#f03',
+                                fillOpacity: 0.5,
+                                radius: 100
+                            }).addTo(map);
+                            navigator.geolocation.getCurrentPosition(showPosition);
+
+                            function showPosition(position) {
+                                var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                            }
+
+
                         </script>
         </div>
 
