@@ -30,7 +30,7 @@
         <video src="./img/quemiras.mp4" class="video-que-miras" autoplay="true" muted="true" loop="true"></video>
         <div class="texto-encima">CONTACTA'NS!!!</div>
         <div class="texto-encima2">Envia el teu missatge</div>
-        <a class="boton-contacto " href="./form-contacte" target="blank">Formulari de contacte</a>
+        <a class="boton-contacto " href="./form-contacte" target="blank" accesskey="f">Formulari de contacte</a>
     </div>
         
     <div class="mapa-contact">
@@ -64,6 +64,7 @@
             <div class="box">
                 <div class="logo-cont">
                     <img src="./img/logo.png" alt="Logo de Geomir">
+
                 </div> 
             </div>
             <div class="box">
