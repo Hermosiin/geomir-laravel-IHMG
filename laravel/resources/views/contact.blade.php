@@ -47,6 +47,7 @@
                                 fillOpacity: 0.5,
                                 radius: 100
                             }).addTo(map);
+                            
                             navigator.geolocation.getCurrentPosition(showPosition);
 
                             function showPosition(position) {
