@@ -36,21 +36,40 @@
     <div class="mapa-contact">
         <h1>Vols visitar-nos?</h1>
         <h3>Ubica'ns al mapa</h3>
-        <div id="map"><script>var map = L.map('map').setView([41.2310177, 1.7279358], 17);
-                                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 19,
-                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                            }).addTo(map);
+        <div id="map">
+            <script>
+                var map = L.map('map').setView([41.2310177, 1.7279358], 17);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
 
-                            var circle = L.circle([41.2310177, 1.7285358], {
-                                color: 'red',
-                                fillColor: '#f03',
-                                fillOpacity: 0.5,
-                                radius: 100
-                            }).addTo(map);
-                            
+                var circle = L.circle([41.2310177, 1.7285358], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 100
+                }).addTo(map);
 
-                        </script>
+                // 4.2 ATAJOS
+                document.onkeyup = function(e) {
+                if (e.ctrlKey && e.altKey && e.which == 71) {
+
+                    navigator.geolocation.getCurrentPosition(success);
+                    function success(position) {
+                    var coordenadas = position.coords;
+                    alert("Tu posición ahora mismo es:"+
+                    "\n- Tu Latitud : " + coordenadas.latitude+
+                    "\n- Tu Longitud: " + coordenadas.longitude);
+                    };
+
+                } else if (e.ctrlKey && e.altKey && e.which == 67) {
+                    alert("Ctrl + Alt + C shortcut combination was pressed");
+                }
+                };
+                        
+
+            </script>
         </div>
 
     </div>
