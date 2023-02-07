@@ -41,6 +41,7 @@
                                 maxZoom: 19,
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }).addTo(map);
+
                             var circle = L.circle([41.2310177, 1.7285358], {
                                 color: 'red',
                                 fillColor: '#f03',
@@ -48,12 +49,6 @@
                                 radius: 100
                             }).addTo(map);
                             
-                            navigator.geolocation.getCurrentPosition(showPosition);
-
-                            function showPosition(position) {
-                                var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
-                            }
-
 
                         </script>
         </div>
@@ -85,5 +80,16 @@
         </div>
     </footer>
 </div>
+
+<script>
+
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+    function showPosition(position) {
+        var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+        marker.bindPopup("Usted esta aquí").openPopup();
+    }
+
+</script>
 
 @endsection
