@@ -53,6 +53,8 @@
 
                 // 4.2 ATAJOS
                 document.onkeyup = function(e) {
+
+                //esto muestra mi latitud y longitud
                 if (e.ctrlKey && e.altKey && e.which == 71) {
 
                     navigator.geolocation.getCurrentPosition(success);
@@ -63,12 +65,35 @@
                     "\n- Tu Longitud: " + coordenadas.longitude);
                     };
 
-                } else if (e.ctrlKey && e.altKey && e.which == 67) {
+                } 
+                //esto centra el mapa en el mir
+                else if (e.ctrlKey && e.altKey && e.which == 67) {
                     alert("Ctrl + Alt + C shortcut combination was pressed");
+                    map.remove();
+
+                    map = L.map('map').setView([41.2310177, 1.7279358], 17);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+
+                circle = L.circle([41.2310177, 1.7285358], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 100
+                }).addTo(map);
+
+                navigator.geolocation.getCurrentPosition(showPosition);
+
+                function showPosition(position) {
+                    marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                    marker.bindPopup("Usted esta aquí").openPopup();
+                }
+
                 }
                 };
                         
-
             </script>
         </div>
 
