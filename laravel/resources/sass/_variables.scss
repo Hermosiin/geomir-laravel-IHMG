@@ -799,12 +799,14 @@ ul.botonera-perfils li > div > p {
 
 ////////////////////////////////////A partir d'aqui és el nou spring////////////////////////////////////////////////
 
+// caja principal poner flex y decir que va en columna
 .flex-contact{
     display: flex;
     flex-direction: column;
 
 }
 
+// div que tendra el video definiendo tamaño y que este en el centro
 .fondo-cont{
     position: relative;
     width: 100%;
@@ -812,6 +814,7 @@ ul.botonera-perfils li > div > p {
     
 }
 
+// cambio tamaño video y longitud y opacidad
 .video-que-miras{
     width:100%;
     height: 114.2vh;
@@ -819,6 +822,7 @@ ul.botonera-perfils li > div > p {
 
 }
 
+// color fondo del mapa tamaño del mapa y que este centrado
 .mapa-contact{
 
     background-color: white;
@@ -828,15 +832,17 @@ ul.botonera-perfils li > div > p {
     align-items: center;
 }
 
+// espacio texto mapa
 .mapa-contact h1{
     padding-top: 20px;
 }
+
+// espacio texto mapa
 .mapa-contact h3{
     padding-bottom: 20px;
 }
 
-
-
+// texto formulario tamaño, posicion y cambio color
 .texto-encima{
 
     position: absolute;
@@ -849,6 +855,7 @@ ul.botonera-perfils li > div > p {
 
 }
 
+// texto formulario tamaño, posicion y cambio color
 .texto-encima2{
 
     position: absolute;
@@ -860,6 +867,7 @@ ul.botonera-perfils li > div > p {
 
 }
 
+// boton formulario posicion color tamaño
 .boton-contacto{
 
     padding: 10px;
@@ -875,10 +883,13 @@ ul.botonera-perfils li > div > p {
 
 //////////////////////////// Footer (Peu de pagina)
 
+// tamaño del footer y color
 .pie-pagina{
     width: 100%;
     background-color: #0a141d;
 }
+
+// ajustar columnas footer y determinar el espacio entre ellas
 .pie-pagina .grupo-1{
     width: 100%;
     max-width: 1200px;
@@ -888,6 +899,8 @@ ul.botonera-perfils li > div > p {
     grid-gap:50px;
     padding: 45px 0px;
 }
+
+// tamaño del logo y que este crentrado
 .logo-cont{
     width: 100%;
     height: 100%;
@@ -895,19 +908,27 @@ ul.botonera-perfils li > div > p {
     justify-content: center;
     align-items: center;
 }
+
+// tamaño imagen logo
 .logo-cont img{
     width: 150px;
     height: 150px;
 }
+
+//tamaño y color del titulo del footer
 .pie-pagina .grupo-1 .box h2{
     color: #fff;
     margin-bottom: 25px;
     font-size: 20px;
 }
+
+// cambio color y espacio texto footer
 .pie-pagina .grupo-1 .box p{
     color: #efefef;
     margin-bottom: 10px;
 }
+
+// cambio color posicion y tamaños de iconos redes sociales
 .pie-pagina .grupo-1 .red-social a{
     display: inline-block;
     text-decoration: none;
@@ -920,6 +941,8 @@ ul.botonera-perfils li > div > p {
     text-align: center;
     transition: all 300ms ease;
 }
+
+//cambio color redes sociales cuando pasas por encima
 .pie-pagina .grupo-1 .red-social a:hover{
     color: aqua;
 }

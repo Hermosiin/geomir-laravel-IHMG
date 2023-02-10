@@ -9,11 +9,14 @@
      crossorigin=""></script>
 
 <style>
+
+    /* para que no salga la barra de scroll */
     ::-webkit-scrollbar {
         display: none;
     
     }
 
+    /* modificacion mapa tamaño y borde */
     #map { 
 
         height: 700px;
@@ -38,12 +41,14 @@
         <h3>Ubica'ns al mapa</h3>
         <div id="map">
             <script>
+                //creacion mapa
                 var map = L.map('map').setView([41.2310177, 1.7279358], 17);
                     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
+                //creacion circulo rojo mapa
                 var circle = L.circle([41.2310177, 1.7285358], {
                     color: 'red',
                     fillColor: '#f03',
@@ -68,7 +73,7 @@
                 } 
                 //esto centra el mapa en el mir
                 else if (e.ctrlKey && e.altKey && e.which == 67) {
-                    alert("Ctrl + Alt + C shortcut combination was pressed");
+                    alert("Acepta para centrar el mapa");
                     map.remove();
 
                     map = L.map('map').setView([41.2310177, 1.7279358], 17);
@@ -126,7 +131,7 @@
 </div>
 
 <script>
-
+    //marcador puntero mapa
     navigator.geolocation.getCurrentPosition(showPosition);
 
     function showPosition(position) {
