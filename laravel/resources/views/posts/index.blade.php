@@ -24,8 +24,8 @@
                 
 
                 <div class="div-btn-post">
-                    <a href="" ><i class="fa-solid fa-comments"></i></a>
-                    <a class="btn-derecha" href="{{ route('posts.show', $post) }}" role="button"><i class="fa-sharp fa-solid fa-eye"></i></a>
+                    <a href="" ><p style="display:none;">Solució Marc</p><i class="fa-solid fa-comments"></i></a>
+                    <a class="btn-derecha" href="{{ route('posts.show', $post) }}" role="button"><p style="display:none;">Solució Marc 2</p><i class="fa-sharp fa-solid fa-eye"></i></a>
                     
 
                 </div>

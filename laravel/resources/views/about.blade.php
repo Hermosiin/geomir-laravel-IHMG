@@ -14,8 +14,8 @@
                     </audio>
                 </div>
                 <div class="contenido">
-                    <h3>Marc Giménez</h3>
-                    <button class="trabajo-marc"></button>
+                    <h1>Marc Giménez</h1>
+                    <button class="trabajo-marc"><p style="display:none;">Botón Marc</p></button>
     
                 </div>
                 
@@ -74,7 +74,7 @@
                 </div>
                 <div class="contenido">
                     <h3>Ismael Hermoso</h3>
-                    <button class="trabajo-ismael"></button>
+                    <button class="trabajo-ismael"><p style="display:none;">Botón Ismael</p></button>
                 </div>               
 
             </div>
