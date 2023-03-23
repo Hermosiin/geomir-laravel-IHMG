@@ -38,7 +38,7 @@
         
     <div class="mapa-contact">
         <h1>Vols visitar-nos?</h1>
-        <h3>Ubica'ns al mapa</h3>
+        <h2>Ubica'ns al mapa</h2>
         <div id="map">
             <script>
                 //creacion mapa
@@ -120,10 +120,10 @@
             <div class="box">
                 <h2>SIGUENOS</h2>
                 <div class="red-social">
-                    <a href="https://es-la.facebook.com/CSGLOB/" target="_blank" class="fa fa-facebook"></a>
-                    <a href="https://www.instagram.com/hermosiin/?hl=es" target="_blank" class="fa fa-instagram"></a>
-                    <a href="https://twitter.com/hermosiin" target="_blank" class="fa fa-twitter"></a>
-                    <a href="https://www.youtube.com/c/FlipiNLosFieles" target="_blank" class="fa fa-youtube"></a>
+                    <a href="https://es-la.facebook.com/CSGLOB/" target="_blank" class="fa fa-facebook">FB</a>
+                    <a href="https://www.instagram.com/hermosiin/?hl=es" target="_blank" class="fa fa-instagram">INS</a>
+                    <a href="https://twitter.com/hermosiin" target="_blank" class="fa fa-twitter">TW</a>
+                    <a href="https://www.youtube.com/c/FlipiNLosFieles" target="_blank" class="fa fa-youtube">YT</a>
                 </div>
             </div>
         </div>

@@ -35,7 +35,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md" >
             <div class="left">
-                <img src="/img/logo.png" class="mida-logo"/>
+                <img src="/img/logo.png" alt="Logo GeoMir" class="mida-logo"/>
                 <h1 style="margin-left:20px; color:white;">GeoMir</h1>
             </div>
             <div class="center">

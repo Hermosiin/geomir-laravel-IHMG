@@ -63,7 +63,7 @@
                            </tr>
                            <tr>
                                 <td scope="col">Favorites</td>
-                                <td>{{ $favorites }}</td>
+                                <td> <i class="fa-regular fa-thumbs-up"></i> {{ $favorites }}</td>
                            </tr>
                        </thead>
                    </table>

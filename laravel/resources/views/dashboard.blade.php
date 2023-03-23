@@ -28,17 +28,17 @@
                 <div class="perfils-publics">
                     <ul class="botonera-perfils">
                         <h1 class="h1-perfils-publics">PERFILS PÚBLICS</h1>
-                        <li><div><img src="/img/logo.png"/><p>Manolo García</p></div>
-                        <li><div><img src="/img/logo.png"/><p>Pepe Reina</p></div>
-                        <li><div><img src="/img/logo.png"/><p>Marc Gimenez</p></div>
-                        <li><div><img src="/img/logo.png"/><p>Lionel Messi</p></div>
-                        <li><div><img src="/img/logo.png"/><p>Mi Padre</p></div>
+                        <li><div><img alt="Foto perfil" src="/img/logo.png"/><h1>Manolo García</h1></div>
+                        <li><div><img alt="Foto perfil" src="/img/logo.png"/><h1>Pepe Reina</h1></div>
+                        <li><div><img alt="Foto perfil" src="/img/logo.png"/><h1>Marc Gimenez</h1></div>
+                        <li><div><img alt="Foto perfil" src="/img/logo.png"/><h1>Lionel Messi</h1></div>
+                        <li><div><img alt="Foto perfil" src="/img/logo.png"/><h1>Mi Padre</h1></div>
 
                     </ul>
                 </div>
             </nav>
         </aside>
-        <article class="img-media"><img src="./img/mapa.jpg"/></article>
+        <article class="img-media"><img alt="Mapa GeoMir" src="./img/mapa.jpg"/></article>
         
         
 

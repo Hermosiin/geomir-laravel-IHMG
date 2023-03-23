@@ -52,7 +52,7 @@
                            </tr>
                            <tr>
                                 <td scope="col">Likes</td>
-                                <td>{{ $likes }}</td>
+                                <td><i class="fa-solid fa-heart"></i> {{ $likes }}</td>
                            </tr>
                        </thead>
                    </table>
@@ -66,7 +66,7 @@
                     @else 
                          <form method="post" action="{{ route('posts.like',$post) }}" enctype="multipart/form-data">
                               @csrf
-                              <button class="btn btn-primary" type="submit">Add to likes</button>
+                              <button class="btn btn-primary" type="submit"> Add to likes</button>
                          </form> 
                     @endif 
 
