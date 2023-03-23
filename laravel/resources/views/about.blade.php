@@ -2,10 +2,13 @@
  
 @section('content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+<h1 style="color:white; left:43%; position:absolute; margin-top:20px;" id="leer" onclick="leerText()">Sobre Nosotros</h1>
 
     <div class="div-about">
+
         <div class="container">
-            <div class="carta">
+            
+            <div class="carta" id="boton-leer">
                 <div class="contenedor-imagenes">
                     <div class="caja1-marc" id="fotoAudio1"></div>
                     <div class="caja2-marc" id="abrirModal1"></div>
@@ -13,10 +16,9 @@
                         <source src="./img/jul5.mp3" type="audio/mp3"></source>
                     </audio>
                 </div>
-                <div class="contenido">
+                <div class="contenido contenido-boton">
                     <h1>Marc Giménez</h1>
-                    <button class="trabajo-marc"><p style="display:none;">Botón Marc</p></button>
-    
+                    <button class="trabajo-marc" ><p style="display:none;">Botón Marc</p></button>
                 </div>
                 
             </div>
@@ -127,8 +129,9 @@
        
 
     </div>
+
     <nav class="div-bnt-menu">
-        <a href="{{ route('dashboard') }}" role="button" title="Enrere"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+        <a href="{{ route('dashboard') }}" role="button" title="Enrere" ><i class="fa-solid fa-arrow-rotate-left"></i></a>
     </nav>
     
     <script>
@@ -228,10 +231,6 @@
             vid4.pause(); 
         }
 
-
-
-
-
         const btnAbrir2 = document.querySelector("#abrirModal2");
         const btnCerrar2 = document.querySelector("#cerrarModal2");
         const modal2 = document.querySelector("#modal2");
@@ -252,30 +251,54 @@
             dragClass: "drag"
 
 
+        });       
+
+
+        function leerText() {
+            var texto = document.getElementById("leer").innerText;
+
+            var synth = window.speechSynthesis;
+
+            var msg = new SpeechSynthesisUtterance();
+
+            msg.text = texto; 
+            msg.lang = 'es-ES';
+
+            synth.speak(msg);
+        } 
+
+
+
+        const boton = document.getElementById('boton-leer');
+        const contenido = document.querySelector('.contenido-boton');
+
+        function leerContenido() {
+            const mensaje = new SpeechSynthesisUtterance();
+            mensaje.lang = 'es-ES';
+            mensaje.text = contenido.textContent;
+            window.speechSynthesis.speak(mensaje);
+        }
+        
+        boton.addEventListener('dblclick', leerContenido);
+        
+
+        function speakPage() {
+            const text = document.body.innerText;
+            const synth = window.speechSynthesis;
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang= 'es-ES';
+            synth.speak(utterance);
+
+        }
+
+        document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.altKey && e.key === "s") {
+            speakPage();
+        }
         });
-
-
-
-
-
-
-       
+    
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @endsection
