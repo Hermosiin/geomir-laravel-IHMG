@@ -48,6 +48,13 @@
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
+                L.Routing.control({
+                waypoints: [
+                    L.latLng(41.2313177, 1.72849),
+                    L.latLng(41.22256157954006, 1.710204524207295)
+                ]
+                }).addTo(map);
+
                 //creacion circulo rojo mapa
                 var circle = L.circle([41.2310177, 1.7285358], {
                     color: 'red',

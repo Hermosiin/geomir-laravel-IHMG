@@ -25,11 +25,11 @@
                                 <h1 class="h1-nom-places" >{{ $place->user->name }}</h1>
                             </div>
                             <div class="estrellas" style="margin-top:auto;">
-                                <a href=""><i class="fa-solid fa-star"></i></a>
-                                <a href=""><i class="fa-solid fa-star"></i></a>
-                                <a href=""><i class="fa-solid fa-star"></i></a>
-                                <a href=""><i class="fa-solid fa-star"></i></a>
-                                <a href=""><i class="fa-solid fa-star"></i></a>
+                                <a href=""><p style="display:none;">Solució Marc 3</p><i class="fa-solid fa-star"></i></a>
+                                <a href=""><p style="display:none;">Solució Marc 3</p><i class="fa-solid fa-star"></i></a>
+                                <a href=""><p style="display:none;">Solució Marc 3</p><i class="fa-solid fa-star"></i></a>
+                                <a href=""><p style="display:none;">Solució Marc 3</p><i class="fa-solid fa-star"></i></a>
+                                <a href=""><p style="display:none;">Solució Marc 3</p><i class="fa-solid fa-star"></i></a>
                             </div>
                         </div>  
                        
