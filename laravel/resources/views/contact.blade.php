@@ -170,7 +170,10 @@
     if (command.includes('subir página')) { 
         window.scrollBy(0, -window.innerHeight); // pujar un tant percernt de la pàgina
 
-    } else if (command.includes("acercar")) {
+    }else if (command.includes('bajar página')) { 
+        window.scrollBy(0, window.innerHeight); // baixar un tant percernt de la pàgina
+
+    }else if (command.includes("acercar")) {
         document.body.style.zoom = "150%"; // + 150% de zoom
 
     }else if (command.includes("acercar más")) {
