@@ -38,6 +38,13 @@
                 <img src="/img/logo.png" alt="Logo GeoMir" class="mida-logo"/>
                 <h1 style="margin-left:20px; color:white;">GeoMir</h1>
             </div>
+            <a href="https://www.w3.org/WAI/WCAG2AAA-Conformance"
+                title="Explanation of WCAG 2 Level AAA conformance">
+                <img height="32" width="88"
+                    src="https://www.w3.org/WAI/wcag2AAA"
+                    alt="Level AAA conformance,
+                    W3C WAI Web Content Accessibility Guidelines 2.0">
+            </a>
             <div class="center">
 
                 <!-- Left Side Of Navbar -->

@@ -253,45 +253,46 @@
 
         });       
 
-
+        // Aquesta funció fa que quan li donguis un click algun element amb el id "leer" es guardi el contingut, i el llegeixi en castellà.
         function leerText() {
-            var texto = document.getElementById("leer").innerText;
+            var texto = document.getElementById("leer").innerText; // Element amb ID = "leer"
 
             var synth = window.speechSynthesis;
 
             var msg = new SpeechSynthesisUtterance();
 
             msg.text = texto; 
-            msg.lang = 'es-ES';
+            msg.lang = 'es-ES'; // Definim castellà 
 
             synth.speak(msg);
         } 
 
 
-
+        // Definim dos elements, els element pare i l'element fill. 
         const boton = document.getElementById('boton-leer');
         const contenido = document.querySelector('.contenido-boton');
 
+        // Quan li donguis doble click al element pare, l'element fill serà llegit. 
+
+        boton.addEventListener('dblclick', leerContenido);
         function leerContenido() {
             const mensaje = new SpeechSynthesisUtterance();
-            mensaje.lang = 'es-ES';
+            mensaje.lang = 'es-ES'; // Definim castellà 
             mensaje.text = contenido.textContent;
             window.speechSynthesis.speak(mensaje);
-        }
-        
-        boton.addEventListener('dblclick', leerContenido);
-        
+        }       
 
+        // Definim la funció de llegir la pagina i ens guardem en una constant interna tot el contingut de la pagina. 
         function speakPage() {
             const text = document.body.innerText;
             const synth = window.speechSynthesis;
 
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang= 'es-ES';
+            utterance.lang= 'es-ES'; // Definim castellà 
             synth.speak(utterance);
 
         }
-
+        // Quan aquesta draçera sigui executada, executara la funcio anterior. 
         document.addEventListener("keydown", (e) => {
         if (e.ctrlKey && e.altKey && e.key === "s") {
             speakPage();

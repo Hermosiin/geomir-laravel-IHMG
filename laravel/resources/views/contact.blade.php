@@ -31,7 +31,7 @@
 <div class="flex-contact">
     <div class="fondo-cont">
         <video src="./img/quemiras.mp4" class="video-que-miras" autoplay="true" muted="true" loop="true"></video>
-        <div class="texto-encima">CONTACTA'NS!!!</div>
+        <div class="texto-encima" id="startButton">CONTACTA'NS!!!</div>
         <div class="texto-encima2">Envia el teu missatge</div>
         <a class="boton-contacto " href="./form-contacte" target="blank" accesskey="f">Formulari de contacte</a>
     </div>
@@ -146,6 +146,51 @@
         marker.bindPopup("Usted esta aquí").openPopup();
     }
 
+    // Creamos una instancia de la API SpeechRecognition
+    const recognition = new webkitSpeechRecognition();
+
+    // Configuramos la instancia
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.lang = 'es-ES';
+
+    // Al activarse el botón, empezamos a escuchar la voz del usuario
+    document.getElementById('startButton').addEventListener('click', () => {
+        recognition.start();
+    });
+
+    // Cuando se detecta una palabra clave, se sube o baja la página
+    recognition.onresult = (event) => {
+    const last = event.results.length - 1;
+    const command = event.results[last][0].transcript.toLowerCase(); 
+
+    console.log(command);
+
+    // Quan l'aplicació escolti qualsevol d'aquestes paraules en conctret, executarà la funció que conté. 
+    if (command.includes('subir página')) { 
+        window.scrollBy(0, -window.innerHeight); // pujar un tant percernt de la pàgina
+
+    } else if (command.includeo("acercar")) {
+        document.body.style.zoom = "150%"; // + 150% de zoom
+
+    }else if (command.includes("acercar más")) {
+        document.body.style.zoom = "200%"; // + 200% de zoom
+
+    }else if (command.includes("alejar")) {
+        document.body.style.zoom = "100%"; // + 100% de zoom
+
+    }else if (command.includes("alejar más")) {
+        document.body.style.zoom = "50%"; // + 50% de zoom
+    }
+    };
+
+    // Draçera de teclat per restablir tant el zoom com la posició. 
+    document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.altKey && e.key === "f") {
+            document.body.style.zoom = "100%"; // +100% de zoom
+            window.scrollTo(0, 0); // Pujar adalt del tot. 
+        } 
+    });
 </script>
 
 @endsection
