@@ -12,6 +12,13 @@ use App\Models\User;
 class TokenController extends Controller
 {
 
+    /**
+ * Get the authenticated user's details along with their roles.
+ *
+ * @param \Illuminate\Http\Request $request The incoming request.
+ *
+ * @return \Illuminate\Http\JsonResponse The response containing the user details and roles.
+ */
     public function user(Request $request)
     {
         $user = User::where('email', $request->user()->email)->first();
@@ -22,6 +29,14 @@ class TokenController extends Controller
             "roles"   => $user->getRoleNames(),
         ]);
     }
+
+    /**
+ * Authenticate a user based on email and password and generate an access token for them.
+ *
+ * @param \Illuminate\Http\Request $request The incoming request containing the user's email and password.
+ *
+ * @return \Illuminate\Http\JsonResponse The response containing the authentication token or an error message.
+ */
 
     public function login(Request $request)
     {
@@ -52,6 +67,14 @@ class TokenController extends Controller
         }
     }
 
+    /**
+ * Create a new user account and generate an access token for them.
+ *
+ * @param \Illuminate\Http\Request $request The incoming request containing the user's name, email, and password.
+ *
+ * @return \Illuminate\Http\JsonResponse The response containing the authentication token or an error message.
+ */
+
     public function register(Request $request)
     {
 
@@ -80,6 +103,14 @@ class TokenController extends Controller
         ], 200);
 
     }
+
+    /**
+ * Revoke the current user's access token to log them out.
+ *
+ * @param \Illuminate\Http\Request $request The incoming request.
+ *
+ * @return \Illuminate\Http\JsonResponse The response indicating a successful logout.
+ */
 
     public function logout(Request $request)
     {
